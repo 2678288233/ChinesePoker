@@ -1,7 +1,7 @@
 package entity;
 
 public class UserInfo {
-    int userID;
+    String userID;
     String userName;
     String userPWD;
     int userScore;
