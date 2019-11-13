@@ -1,6 +1,7 @@
 package dao;
 
 import entity.UserInfo;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.Map;
 

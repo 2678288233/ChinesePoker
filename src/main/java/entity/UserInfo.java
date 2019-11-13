@@ -8,11 +8,11 @@ public class UserInfo {
     int userWinNum;
     int UserLoseNum;
 
-    public int getUserID() {
+    public String getUserID() {
         return userID;
     }
 
-    public void setUserID(int userID) {
+    public void setUserID(String userID) {
         this.userID = userID;
     }
 

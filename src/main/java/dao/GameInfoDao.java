@@ -1,6 +1,7 @@
 package dao;
 
 import entity.GameInfo;
+import org.apache.ibatis.annotations.Param;
 
 public interface GameInfoDao {
     /**
