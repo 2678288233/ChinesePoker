@@ -1,12 +1,12 @@
 package entity;
 
 public class UserInfo {
-    String userID;
-    String userName;
-    String userPWD;
-    int userScore;
-    int userWinNum;
-    int UserLoseNum;
+    private String userID;
+    private String userName;
+    private String userPWD;
+    private int userScore;
+    private int userWinNum;
+    private int UserLoseNum;
 
     public String getUserID() {
         return userID;

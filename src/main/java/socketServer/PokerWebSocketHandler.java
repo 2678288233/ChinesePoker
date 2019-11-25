@@ -5,13 +5,12 @@ package socketServer;
 import com.google.gson.Gson;
 import entity.Room;
 import entity.User;
+import messages.GameMessage;
 import org.springframework.stereotype.Component;
 import org.springframework.web.socket.CloseStatus;
 import org.springframework.web.socket.WebSocketHandler;
 import org.springframework.web.socket.WebSocketMessage;
 import org.springframework.web.socket.WebSocketSession;
-import services.Imp.RoomServiceImp;
-import services.RoomService;
 
 import javax.annotation.Resource;
 
@@ -65,13 +64,16 @@ public class PokerWebSocketHandler implements WebSocketHandler {
         User user=(User)webSocketSession.getAttributes().get("user");
         assert user!=null;
 
-        if("1".equals((String)webSocketMessage.getPayload())){
+        GameMessage gameMessage=GameMessage.parseGameMessage((String)webSocketMessage.getPayload());
+        processMessage(user,gameMessage);
+
+        /*if("1".equals((String)webSocketMessage.getPayload())){
             Room room=new Room();
             room.setID("120");
             user.homeService.enterHome();
         }
 
-        System.out.println("receive "+webSocketMessage);
+        System.out.println("receive "+webSocketMessage);*/
     }
 
     @Override
@@ -90,4 +92,27 @@ public class PokerWebSocketHandler implements WebSocketHandler {
     }
 
 
+    private void processMessage(User user,GameMessage gameMessage){
+        switch (gameMessage.getGameMessageType()){
+
+            /* gameService*/
+            case ready:user.getGameService().ready();break;
+            case play:user.getGameService().play(gameMessage.getCards());
+            case timeout:user.getGameService().timeout();break;
+            case unready:user.getGameService().unready();break;
+            case getLord:user.getGameService().getLord();break;
+            case competeLord:user.getGameService().competeLord();break;
+            case doubleScore:user.getGameService().doubleScore();break;
+            case passLord:
+            /* roomService*/
+            case enterRoom:user.getRoomService().enterRoom(gameMessage.getRoomId());
+            case createRoom:user.getRoomService().createRoom(new Room(gameMessage.getRoomId()));
+
+            case getRoomInfo:
+            case changePwd:
+            case getUserBasicInfo:
+            case getUserDetailInfo:
+            default:throw new RuntimeException("UnKnown type");
+        }
+    }
 }

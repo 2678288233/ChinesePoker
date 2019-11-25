@@ -25,5 +25,15 @@ public class UserInfoDaoImpl extends SqlSessionDaoSupport implements UserInfoDao
         this.getSqlSession().insert("dao.UserInfoDao.insert",userInfo);
     }
 
+    @Override
+    public void update(UserInfo userInfo) {
+        this.getSqlSession().update("dao.UserInfoDao.update",userInfo);
+    }
+
+    @Override
+    public UserInfo select(String userName) {
+        return this.getSqlSession().selectOne("dao.UserInfoDao.select",userName);
+    }
+
 
 }

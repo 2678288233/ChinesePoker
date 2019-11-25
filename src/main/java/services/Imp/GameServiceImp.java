@@ -1,9 +1,10 @@
 package services.Imp;
 
+import entity.Card;
 import entity.User;
 import messages.GameChan;
 import messages.GameMessage;
-import messages.GameMessageType;
+
 import org.springframework.web.socket.TextMessage;
 import services.GameService;
 
@@ -16,21 +17,56 @@ public class GameServiceImp implements GameService {
     }
     @Override
     public void ready() {
-        gameChan.send(user.getID(),new GameMessage(GameMessageType.ready));
+        try {
+            gameChan.send(user,new GameMessage(GameMessage.GameMessageType.ready));
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
     }
 
     @Override
     public void unready() {
-        gameChan.send(user.getID(),new GameMessage(GameMessageType.unready));
+        try {
+            gameChan.send(user,new GameMessage(GameMessage.GameMessageType.unready));
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
     public void timeout() {
-        gameChan.send(user.getID(),new GameMessage(GameMessageType.timeout));
+        try{
+            gameChan.send(user,new GameMessage(GameMessage.GameMessageType.timeout));
+        }catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
     }
 
     @Override
-    public void play(TextMessage textMessage) {
-        gameChan.send(user.getID(),new GameMessage(GameMessageType.play));
+    public void play(Card[] cards) {
+
     }
+
+    @Override
+    public void getLord() {
+
+    }
+
+    @Override
+    public void competeLord() {
+
+    }
+
+    @Override
+    public void doubleScore() {
+
+    }
+
+    @Override
+    public void pass() {
+
+    }
+
 }

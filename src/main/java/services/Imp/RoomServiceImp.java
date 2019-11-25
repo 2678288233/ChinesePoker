@@ -4,11 +4,11 @@ import entity.Room;
 import entity.User;
 import messages.GameChan;
 import messages.GameMessage;
-import messages.GameMessageType;
+
 import services.RoomService;
 
 public class RoomServiceImp implements RoomService {
-    User user;
+    private User user;
 
     public RoomServiceImp(User user){
         this.user=user;

@@ -2,8 +2,10 @@ package dao;
 
 import entity.UserInfo;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.Map;
+
 
 public interface UserInfoDao {
     /** 传递整个实体对象作为参数。其中积分、胜负场次均为0. */

@@ -12,10 +12,10 @@ import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 public class RoomDispatch {
-    static Map<String,User> userMap=new HashMap<>();
-    static Map<String,User> homeUserMap=new HashMap<>();
-    static Map<String,Room> roomMap=new HashMap<>();
-    static Map<String,String> userRoomMap=new HashMap<>();
+    private static Map<String,User> userMap=new HashMap<>();
+    private static Map<String,User> homeUserMap=new HashMap<>();
+    private static Map<String,Room> roomMap=new HashMap<>();
+    private static Map<String,String> userRoomMap=new HashMap<>();
 
     //优先级  roommpLock > room.userLock > homeUsermpLock
     //
@@ -48,6 +48,7 @@ public class RoomDispatch {
             }
             homeUserMap.remove(user.getID());
         }
+
     }
 
     public static void createRoom(User user,Room room){
@@ -60,6 +61,7 @@ public class RoomDispatch {
                 userRoomMap.put(user.getID(), room.getID());
                 leaveHome(user);
                 user.setGameChan(room.getGameChan());
+                user.setRoomID(room.getID());
                 room.addPlayer(user);
                 new Thread(new RoomWorker(room)).start();
             }
@@ -80,6 +82,7 @@ public class RoomDispatch {
                 userRoomMap.put(user.getID(), room.getID());
                 leaveHome(user);
                 user.setGameChan(room.getGameChan());
+                user.setRoomID(room.getID());
                 room.addPlayer(user);
             }
         }
@@ -94,6 +97,8 @@ public class RoomDispatch {
             synchronized (room.userLock) {
                 room.remoevPlayer(user.getID());
                 userRoomMap.remove(user.getID());
+                user.setRoomID(null);
+                user.setGameChan(null);
             }
         }
         enterHome(user);
@@ -170,7 +175,12 @@ public class RoomDispatch {
                         throw new RuntimeException("Invaild person number something must be wrong.");
                     }
                     while(!gameChan.isEmpty()){
-                        handleMessage(gameChan.receive());
+                        try {
+                            handleMessage(gameChan.receive());
+
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
                     }
                 }
             }
@@ -178,6 +188,7 @@ public class RoomDispatch {
 
 
         private void handleMessage(GameMessage gameMessage){
+
 
 
 

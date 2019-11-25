@@ -8,8 +8,47 @@
   <component name="ChangeListManager">
     <list default="true" id="2758511d-2dab-47fd-8d2d-367683bcf6a9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/UserInfoDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/UserInfoDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/impl/UserInfoDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/impl/UserInfoDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entity/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/Room.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entity/UserInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/UserInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/GameChan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/GameChan.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/GameMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/GameMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/GameMessageType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/GameService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/GameService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/Imp/GameServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/Imp/GameServiceImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/Imp/RoomDispatch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/Imp/RoomDispatch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/Imp/RoomServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/Imp/RoomServiceImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/socketServer/PokerWebSocketHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/socketServer/PokerWebSocketHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/config/settings/druid.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config/settings/druid.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/UserInfoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/UserInfoMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/test/daoTest/UserInfoDaoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/test/daoTest/UserInfoDaoTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/config/settings/druid.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/config/settings/druid.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dao/GameInfoDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/GameInfoDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dao/UserInfoDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/UserInfoDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dao/UserRelatedGameDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/UserRelatedGameDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dao/impl/UserInfoDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/impl/UserInfoDaoImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dao/testDao/Test0.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dao/testDao/Test0Impl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dao/testDao/TestDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dao/testDao/TestDao0Impl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/entity/GameInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entity/GameInfo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/entity/Room.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entity/Room.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/entity/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entity/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/entity/UserInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entity/UserInfo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/entity/UserRelatedGame.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entity/UserRelatedGame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapper/UserInfoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/UserInfoMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/messages/GameChan.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/messages/GameChan.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/messages/GameMessage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/messages/GameMessage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/messages/GameMessageType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/services/GameService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/GameService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/services/Imp/GameServiceImp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/Imp/GameServiceImp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/services/Imp/RoomDispatch$HomeWorker.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/Imp/RoomDispatch$HomeWorker.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/services/Imp/RoomDispatch$RoomWorker.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/Imp/RoomDispatch$RoomWorker.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/services/Imp/RoomDispatch.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/Imp/RoomDispatch.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/services/Imp/RoomServiceImp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/Imp/RoomServiceImp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/socketServer/PokerWebSocketHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/socketServer/PokerWebSocketHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/daoTest/UserInfoDaoTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/daoTest/UserInfoDaoTest.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,8 +60,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -49,7 +88,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../SE/Crawl" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -91,32 +130,50 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.UserInfoDaoTest">
-    <configuration name="TestDaoImpl" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="dao.testDao.TestDaoImpl" />
+  <component name="RunManager" selected="JUnit.UserInfoDaoTest.testInsertUserInfo">
+    <configuration name="GameMessageTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ChinesePoker" />
-      <option name="VM_PARAMETERS" value="-ea" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="dao.testDao.*" />
+          <option name="PATTERN" value="entityTest.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="entityTest" />
+      <option name="MAIN_CLASS_NAME" value="entityTest.GameMessageTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test0Impl" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GameMessageTest.ConvertToGamessage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ChinesePoker" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="dao.testDao.*" />
+          <option name="PATTERN" value="entityTest.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="dao.testDao" />
-      <option name="MAIN_CLASS_NAME" value="dao.testDao.Test0Impl" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="entityTest" />
+      <option name="MAIN_CLASS_NAME" value="entityTest.GameMessageTest" />
+      <option name="METHOD_NAME" value="ConvertToGamessage" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GameMessageTest.testConvertToJson" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ChinesePoker" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="entityTest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="entityTest" />
+      <option name="MAIN_CLASS_NAME" value="entityTest.GameMessageTest" />
+      <option name="METHOD_NAME" value="testConvertToJson" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -132,6 +189,22 @@
       <option name="PACKAGE_NAME" value="daoTest" />
       <option name="MAIN_CLASS_NAME" value="daoTest.UserInfoDaoTest" />
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserInfoDaoTest.testInsertUserInfo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ChinesePoker" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="daoTest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="daoTest" />
+      <option name="MAIN_CLASS_NAME" value="daoTest.UserInfoDaoTest" />
+      <option name="METHOD_NAME" value="testInsertUserInfo" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -211,16 +284,20 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.TestDaoImpl" />
-      <item itemvalue="JUnit.Test0Impl" />
       <item itemvalue="JUnit.UserInfoDaoTest" />
       <item itemvalue="Tomcat Server.Tomcat9" />
+      <item itemvalue="JUnit.GameMessageTest.testConvertToJson" />
+      <item itemvalue="JUnit.GameMessageTest.ConvertToGamessage" />
+      <item itemvalue="JUnit.GameMessageTest" />
+      <item itemvalue="JUnit.UserInfoDaoTest.testInsertUserInfo" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.UserInfoDaoTest.testInsertUserInfo" />
+        <item itemvalue="JUnit.GameMessageTest" />
+        <item itemvalue="JUnit.GameMessageTest.ConvertToGamessage" />
+        <item itemvalue="JUnit.GameMessageTest.testConvertToJson" />
         <item itemvalue="JUnit.UserInfoDaoTest" />
-        <item itemvalue="JUnit.Test0Impl" />
-        <item itemvalue="Application.TestDaoImpl" />
       </list>
     </recent_temporary>
   </component>
@@ -244,6 +321,7 @@
       <workItem from="1573644327007" duration="669000" />
       <workItem from="1574064980241" duration="1906000" />
       <workItem from="1574076187069" duration="3502000" />
+      <workItem from="1574647546586" duration="12247000" />
     </task>
     <servers />
   </component>

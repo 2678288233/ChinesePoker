@@ -25,8 +25,11 @@ public class Room {
     public void remoevPlayer(String userID){
         users.removeIf((u)->u.getID().equals(userID));
     }
-    String ID;
-    List<User> users=new ArrayList<>();
+    private String ID;
+    private List<User> users=new ArrayList<>();
     public final Object userLock=new Object();
-    GameChan gameChan;
+    private GameChan gameChan;
+
+    public Room(){}
+    public Room(String id){this.ID =id;}
 }

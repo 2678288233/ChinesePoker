@@ -12,11 +12,19 @@
         (#{userID},#{userName},#{userPWD},#{userScore},#{userWinNum},#{userLoseNum})
     </insert>
 
-    <insert id="insertByMap" parameterType="map">
 
-        insert into USER_INFO
-        <foreach collection="" open="(" close=")" separator="," index="index" item="item">#{index}</foreach>
-        values
-        <foreach collection="userInfo" open="(" close=")" separator="," index="index" item="item">#{item}</foreach>
-    </insert>
+    <update id="update" parameterType="entity.UserInfo">
+
+        update USER_INFO set
+        <if test="userPWD!=null"> USER_PWD=#{userPWD},</if>
+         USER_SCORE=USER_SCORE+#{userScore},USER_WINNUM=USER_WINNUM+#{userWinNum},USER_LOSENUM=USER_LOSENUM+#{userLoseNum}
+        where USER_ID=#{userID}
+    </update>
+
+    <select id="select" parameterType="String" resultType="entity.UserInfo">
+        select * from USER_INFO
+        where USER_NAME=#{userName}
+    </select>
+
+
 </mapper>

@@ -36,15 +36,73 @@ public class User {
         return gameChan;
     }
 
-    String ID;
-    WebSocketSession webSocketSession;
-    GameChan gameChan;
-    public GameService gameService;
-    public HomeService homeService;
-    public RoomService roomService;
+
+    public String getRoomID() {
+        return roomID;
+    }
+
+    public void setRoomID(String roomID) {
+        this.roomID = roomID;
+    }
+
+    public int getSeat() {
+        return seat;
+    }
+
+    public void setSeat(int seat) {
+        this.seat = seat;
+    }
+
+    public UserStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(UserStatus status) {
+        this.status = status;
+    }
+
+    public GameService getGameService() {
+        return gameService;
+    }
+
+    public void setGameService(GameService gameService) {
+        this.gameService = gameService;
+    }
+
+    public HomeService getHomeService() {
+        return homeService;
+    }
+
+    public void setHomeService(HomeService homeService) {
+        this.homeService = homeService;
+    }
+
+    public RoomService getRoomService() {
+        return roomService;
+    }
+
+    public void setRoomService(RoomService roomService) {
+        this.roomService = roomService;
+    }
+
+    private String ID;
+    private WebSocketSession webSocketSession;
+    private GameChan gameChan;
+
+    private String roomID;
+    private int seat;
+    private UserStatus status=UserStatus.unready;
+
+    private GameService gameService;
+    private HomeService homeService;
+    private RoomService roomService;
     public User(){
         gameService=new GameServiceImp(this);
         homeService=new HomeServiceImp(this);
         roomService=new RoomServiceImp(this);
+    }
+
+    public enum UserStatus{
+        unready,ready,play
     }
 }
