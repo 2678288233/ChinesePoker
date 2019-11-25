@@ -1,18 +1,18 @@
 package entity;
 
 public class UserInfo {
-    int userID;
+    String userID;
     String userName;
     String userPWD;
     int userScore;
     int userWinNum;
     int UserLoseNum;
 
-    public int getUserID() {
+    public String getUserID() {
         return userID;
     }
 
-    public void setUserID(int userID) {
+    public void setUserID(String userID) {
         this.userID = userID;
     }
 

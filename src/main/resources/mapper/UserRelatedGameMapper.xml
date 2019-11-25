@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.UserRelatedGameDao">
+
+    <insert id="insert" parameterType="entity.UserRelatedGame">
+        insert into USER_RELATED_GAME(USER_ID,GAME_ID,USER_SIGN,USER_SCORE)
+        values (#{userID},#{gameID},#{userSign},#{userScore})
+    </insert>
+
+    <select id="selectByUser" parameterType="String" resultType="entity.UserRelatedGame">
+        select * from USER_RELATED_GAME
+        where USER_ID=#{userId}
+    </select>
+
+    <select id="selectByGame" parameterType="String" resultType="entity.UserRelatedGame">
+        select * from USER_RELATED_GAME
+        where GAME_ID=#{gameId}
+    </select>
+
+</mapper>
