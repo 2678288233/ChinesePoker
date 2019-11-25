@@ -95,7 +95,7 @@ public class GameMessage {
     public enum GameMessageType {
         ready, unready,timeout,play,
         enterRoom,createRoom,
-        getUserBasicInfo,getUserDetailInfo,changePwd,
+
         getRoomInfo,
         //dispatchCards,
         getLord,passLord,competeLord,

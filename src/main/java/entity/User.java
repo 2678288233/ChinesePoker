@@ -102,6 +102,11 @@ public class User {
         roomService=new RoomServiceImp(this);
     }
 
+    private static int suffix=0;
+    public static String generaterID(){
+        return String.valueOf(System.currentTimeMillis())+(suffix++);
+    }
+
     public enum UserStatus{
         unready,ready,play
     }

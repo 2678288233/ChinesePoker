@@ -3,6 +3,7 @@ package dao.impl;
 import dao.UserInfoDao;
 import entity.UserInfo;
 import org.apache.ibatis.session.SqlSessionFactory;
+
 import org.mybatis.spring.support.SqlSessionDaoSupport;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -31,8 +32,14 @@ public class UserInfoDaoImpl extends SqlSessionDaoSupport implements UserInfoDao
     }
 
     @Override
-    public UserInfo select(String userName) {
-        return this.getSqlSession().selectOne("dao.UserInfoDao.select",userName);
+    public UserInfo select(String id) {
+        return this.getSqlSession().selectOne("dao.UserInfoDao.select",id);
+
+    }
+
+    @Override
+    public UserInfo selectByName(String username) {
+        return this.getSqlSession().selectOne("dao.UserInfoDao.selectByName",username);
     }
 
 

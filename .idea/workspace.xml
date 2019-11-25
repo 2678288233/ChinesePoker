@@ -7,7 +7,47 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2758511d-2dab-47fd-8d2d-367683bcf6a9" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/UserInfoDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/UserInfoDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/impl/UserInfoDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/impl/UserInfoDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entity/GameInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/GameInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entity/UserInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/UserInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entity/UserRelatedGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/UserRelatedGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/GameMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/GameMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/socketServer/PokerWebSocketHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/socketServer/PokerWebSocketHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/config/settings/druid.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config/settings/druid.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/config/spring-db.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config/spring-db.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/UserInfoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/UserInfoMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/spring-mvc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/spring-mvc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/test/daoTest/UserInfoDaoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/test/daoTest/UserInfoDaoTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ChinesePoker.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/entity/Room.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/entity/Room.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/entity/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/entity/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/messages/GameChan.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/messages/GameChan.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/messages/GameMessage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/messages/GameMessage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/messages/GameMessageType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/services/GameService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/services/GameService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/services/Imp/GameServiceImp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/services/Imp/GameServiceImp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/services/Imp/RoomDispatch$HomeWorker.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/services/Imp/RoomDispatch$HomeWorker.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/services/Imp/RoomDispatch$RoomWorker.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/services/Imp/RoomDispatch$RoomWorker.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/services/Imp/RoomDispatch.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/services/Imp/RoomDispatch.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/services/Imp/RoomServiceImp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/services/Imp/RoomServiceImp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/socketServer/PokerWebSocketHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/socketServer/PokerWebSocketHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/spring-mvc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/spring-mvc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/config/spring-db.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/config/spring-db.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dao/UserInfoDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/UserInfoDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dao/impl/UserInfoDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/impl/UserInfoDaoImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/entity/GameInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entity/GameInfo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/entity/UserInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entity/UserInfo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/entity/UserRelatedGame.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entity/UserRelatedGame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapper/UserInfoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/UserInfoMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/messages/GameMessage$GameMessageType.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/messages/GameMessage$GameMessageType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/socketServer/PokerWebSocketHandler$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/socketServer/PokerWebSocketHandler$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/socketServer/PokerWebSocketHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/socketServer/PokerWebSocketHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/spring-mvc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/spring-mvc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/daoTest/UserInfoDaoTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/daoTest/UserInfoDaoTest.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,8 +59,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -47,7 +87,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../SE/Crawl" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../demo" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -55,26 +95,26 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.proportion" value="0.235" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="F:\1__sourcecode\java\EE\ChinesePoker\src\main\java" />
-      <recent name="F:\1__sourcecode\java\EE\ChinesePoker\src\main\java\mapper" />
-      <recent name="F:\1__sourcecode\java\EE\ChinesePoker\src\main\resources\config" />
-      <recent name="F:\1__sourcecode\java\EE\ChinesePoker\src\main\resources\config\settings" />
-      <recent name="F:\1__sourcecode\java\EE\ChinesePoker\src\main\webapp\WEB-INF\views" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="controller" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="F:\1__sourcecode\java\EE\ChinesePoker\src\main\resources\config" />
       <recent name="F:\1__sourcecode\java\EE\ChinesePoker\src\main\webapp\WEB-INF" />
       <recent name="F:\1__sourcecode\java\EE\ChinesePoker\src\main\resources" />
       <recent name="F:\1__sourcecode\java\EE\ChinesePoker\src\main\java\socketServer" />
       <recent name="F:\1__sourcecode\java\EE\ChinesePoker\src\main\java\exceptions" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="controller" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\1__sourcecode\java\EE\ChinesePoker\src\main\resources\config" />
+      <recent name="F:\1__sourcecode\java\EE\ChinesePoker\src\main\resources\config\settings" />
+      <recent name="F:\1__sourcecode\java\EE\ChinesePoker\src\main\resources" />
+      <recent name="F:\1__sourcecode\java\EE\ChinesePoker\src\main\java" />
+      <recent name="F:\1__sourcecode\java\EE\ChinesePoker\src\main\java\mapper" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -89,38 +129,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.UserInfoDaoTest.testInsertUserInfo">
-    <configuration name="GameMessageTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ChinesePoker" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="entityTest.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="entityTest" />
-      <option name="MAIN_CLASS_NAME" value="entityTest.GameMessageTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="GameMessageTest.ConvertToGamessage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ChinesePoker" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="entityTest.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="entityTest" />
-      <option name="MAIN_CLASS_NAME" value="entityTest.GameMessageTest" />
-      <option name="METHOD_NAME" value="ConvertToGamessage" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Tomcat Server.Tomcat9">
     <configuration name="GameMessageTest.testConvertToJson" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ChinesePoker" />
       <extension name="coverage">
@@ -152,6 +161,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="UserInfoDaoTest.testInsertUserBonus" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ChinesePoker" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="daoTest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="daoTest" />
+      <option name="MAIN_CLASS_NAME" value="daoTest.UserInfoDaoTest" />
+      <option name="METHOD_NAME" value="testInsertUserBonus" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="UserInfoDaoTest.testInsertUserInfo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ChinesePoker" />
       <extension name="coverage">
@@ -163,6 +188,22 @@
       <option name="PACKAGE_NAME" value="daoTest" />
       <option name="MAIN_CLASS_NAME" value="daoTest.UserInfoDaoTest" />
       <option name="METHOD_NAME" value="testInsertUserInfo" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserInfoDaoTest.testSelectUserInfo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ChinesePoker" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="daoTest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="daoTest" />
+      <option name="MAIN_CLASS_NAME" value="daoTest.UserInfoDaoTest" />
+      <option name="METHOD_NAME" value="testSelectUserInfo" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -246,17 +287,17 @@
       <item itemvalue="JUnit.UserInfoDaoTest" />
       <item itemvalue="Tomcat Server.Tomcat9" />
       <item itemvalue="JUnit.GameMessageTest.testConvertToJson" />
-      <item itemvalue="JUnit.GameMessageTest.ConvertToGamessage" />
-      <item itemvalue="JUnit.GameMessageTest" />
       <item itemvalue="JUnit.UserInfoDaoTest.testInsertUserInfo" />
+      <item itemvalue="JUnit.UserInfoDaoTest.testInsertUserBonus" />
+      <item itemvalue="JUnit.UserInfoDaoTest.testSelectUserInfo" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.UserInfoDaoTest.testInsertUserInfo" />
-        <item itemvalue="JUnit.GameMessageTest" />
-        <item itemvalue="JUnit.GameMessageTest.ConvertToGamessage" />
-        <item itemvalue="JUnit.GameMessageTest.testConvertToJson" />
+        <item itemvalue="JUnit.UserInfoDaoTest.testSelectUserInfo" />
+        <item itemvalue="JUnit.UserInfoDaoTest.testInsertUserBonus" />
         <item itemvalue="JUnit.UserInfoDaoTest" />
+        <item itemvalue="JUnit.GameMessageTest.testConvertToJson" />
+        <item itemvalue="JUnit.UserInfoDaoTest.testInsertUserInfo" />
       </list>
     </recent_temporary>
   </component>
@@ -280,7 +321,7 @@
       <workItem from="1573644327007" duration="669000" />
       <workItem from="1574064980241" duration="1906000" />
       <workItem from="1574076187069" duration="3502000" />
-      <workItem from="1574647546586" duration="12498000" />
+      <workItem from="1574647546586" duration="27923000" />
     </task>
     <servers />
   </component>

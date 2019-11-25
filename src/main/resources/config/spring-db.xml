@@ -20,6 +20,8 @@
     <context:property-placeholder location="classpath:config/settings/druid.properties" />
 
 
+
+
     <!-- 数据源 -->
     <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource"
           init-method="init" destroy-method="close">
@@ -61,15 +63,18 @@
     <bean id="sqlSessionFactory" name="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource" />
         <property name="configLocation" value="classpath:config/mybatis-config.xml"/>
-        <property name="mapperLocations" value="classpath:mapper/*Mapper.xml" />
+        <property name="mapperLocations" value="classpath:mapper/*.xml" />
 
         <!--<property name="typeAliasesPackage" value="com.mengdee.manager.domain" />-->
 
     </bean>
 
+    <!-- <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+                <constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"/>
 
+            </bean>-->
     <!-- 配置mybatis mapper接口 -->
-   <!-- <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+   <!--<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage" value="config.mapper" />
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
     </bean>-->

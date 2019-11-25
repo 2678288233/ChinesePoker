@@ -17,14 +17,17 @@
 
         update USER_INFO set
         <if test="userPWD!=null"> USER_PWD=#{userPWD},</if>
-         USER_SCORE=USER_SCORE+#{userScore},USER_WINNUM=USER_WINNUM+#{userWinNum},USER_LOSENUM=USER_LOSENUM+#{userLoseNum}
+         USER_SCORE= #{userScore},USER_WINNUM=#{userWinNum},USER_LOSENUM=#{userLoseNum}
         where USER_ID=#{userID}
     </update>
 
-    <select id="select" parameterType="String" resultType="entity.UserInfo">
-        select * from USER_INFO
-        where USER_NAME=#{userName}
+    <select id="select" resultType="entity.UserInfo">
+        select USER_ID,USER_NAME,USER_PWD,USER_SCORE,USER_WINNUM,USER_LOSENUM from USER_INFO
+        where USER_ID=#{id}
     </select>
-
+    <select id="selectByName" resultType="entity.UserInfo">
+        select USER_ID,USER_NAME,USER_PWD,USER_SCORE,USER_WINNUM,USER_LOSENUM from USER_INFO
+        where USER_ID=#{username}
+    </select>
 
 </mapper>

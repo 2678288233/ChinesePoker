@@ -1,58 +1,61 @@
 package entity;
 
 public class UserInfo {
-    private String userID;
-    private String userName;
-    private String userPWD;
-    private int userScore;
-    private int userWinNum;
-    private int UserLoseNum;
 
-    public String getUserID() {
-        return userID;
+    public String getUSER_ID() {
+        return USER_ID;
     }
 
-    public void setUserID(String userID) {
-        this.userID = userID;
+    public void setUSER_ID(String USER_ID) {
+        this.USER_ID = USER_ID;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUSER_NAME() {
+        return USER_NAME;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUSER_NAME(String USER_NAME) {
+        this.USER_NAME = USER_NAME;
     }
 
-    public String getUserPWD() {
-        return userPWD;
+    public String getUSER_PWD() {
+        return USER_PWD;
     }
 
-    public void setUserPWD(String userPWD) {
-        this.userPWD = userPWD;
+    public void setUSER_PWD(String USER_PWD) {
+        this.USER_PWD = USER_PWD;
     }
 
-    public int getUserScore() {
-        return userScore;
+    public int getUSER_SCORE() {
+        return USER_SCORE;
     }
 
-    public void setUserScore(int userScore) {
-        this.userScore = userScore;
+    public void setUSER_SCORE(int USER_SCORE) {
+        this.USER_SCORE = USER_SCORE;
     }
 
-    public int getUserWinNum() {
-        return userWinNum;
+    public int getUSER_WINNUM() {
+        return USER_WINNUM;
     }
 
-    public void setUserWinNum(int userWinNum) {
-        this.userWinNum = userWinNum;
+    public void setUSER_WINNUM(int USER_WINNUM) {
+        this.USER_WINNUM = USER_WINNUM;
     }
 
-    public int getUserLoseNum() {
-        return UserLoseNum;
+    public int getUSER_LOSENUM() {
+        return USER_LOSENUM;
     }
 
-    public void setUserLoseNum(int userLoseNum) {
-        UserLoseNum = userLoseNum;
+    public void setUSER_LOSENUM(int USER_LOSENUM) {
+        this.USER_LOSENUM = USER_LOSENUM;
     }
+
+
+    private String USER_ID;
+    private String USER_NAME;
+    private String USER_PWD;
+    private int USER_SCORE;
+    private int USER_WINNUM;
+    private int USER_LOSENUM;
+
 }

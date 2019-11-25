@@ -1,31 +1,31 @@
 package entity;
 
 public class GameInfo {
-    int gameID;
-    String gameTime;
-    String gameDuration;
+    private String GAME_ID;
+    private String GAME_START_TIME;
+    private String GAME_LAST_TIME;
 
-    public int getGameID() {
-        return gameID;
+    public String getGAME_ID() {
+        return GAME_ID;
     }
 
-    public void setGameID(int gameID) {
-        this.gameID = gameID;
+    public void setGAME_ID(String GAME_ID) {
+        this.GAME_ID = GAME_ID;
     }
 
-    public String getGameTime() {
-        return gameTime;
+    public String getGAME_START_TIME() {
+        return GAME_START_TIME;
     }
 
-    public void setGameTime(String gameTime) {
-        this.gameTime = gameTime;
+    public void setGAME_START_TIME(String GAME_START_TIME) {
+        this.GAME_START_TIME = GAME_START_TIME;
     }
 
-    public String getGameDuration() {
-        return gameDuration;
+    public String getGAME_LAST_TIME() {
+        return GAME_LAST_TIME;
     }
 
-    public void setGameDuration(String gameDuration) {
-        this.gameDuration = gameDuration;
+    public void setGAME_LAST_TIME(String GAME_LAST_TIME) {
+        this.GAME_LAST_TIME = GAME_LAST_TIME;
     }
 }

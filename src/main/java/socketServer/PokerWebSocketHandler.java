@@ -108,10 +108,7 @@ public class PokerWebSocketHandler implements WebSocketHandler {
             case enterRoom:user.getRoomService().enterRoom(gameMessage.getRoomId());
             case createRoom:user.getRoomService().createRoom(new Room(gameMessage.getRoomId()));
 
-            case getRoomInfo:
-            case changePwd:
-            case getUserBasicInfo:
-            case getUserDetailInfo:
+
             default:throw new RuntimeException("UnKnown type");
         }
     }

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.GameInfoDao">
+
+    <insert id="insert" parameterType="entity.GameInfo">
+        insert into GAME_INFO(GAME_ID,GAME_START_TIME,GAME_LAST_TIME)
+        values (#{gameID},#{gameTime},#{gameDuration})
+    </insert>
+
+    <select id="select" parameterType="String" resultType="entity.GameInfo">
+        select * from GAME_INFO
+        where GAME_ID=#{gameID}
+    </select>
+</mapper>
