@@ -4,11 +4,11 @@
 
     <insert id="insert" parameterType="entity.GameInfo">
         insert into GAME_INFO(GAME_ID,GAME_START_TIME,GAME_LAST_TIME)
-        values (#{gameID},#{gameTime},#{gameDuration})
+        values (#{GAME_ID},#{GAME_START_TIME},#{GAME_LAST_TIME})
     </insert>
 
     <select id="select" parameterType="String" resultType="entity.GameInfo">
         select * from GAME_INFO
-        where GAME_ID=#{gameID}
+        where GAME_ID=#{GAME_ID}
     </select>
 </mapper>

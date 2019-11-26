@@ -7,19 +7,19 @@
         insert into USER_BONUS_INFO(USER_ID,USER_PEASANT_WINNUM,USER_PEASANT_LOSENUM,USER_LORD_WINNUM,USER_LORD_LOSENUM,USER_LAST_GAME_TIME)
 
         values
-        (#{userID},#{peasantWinNum},#{peasantLoseNum},#{lordWinNum},#{lordLoseNum},#{lastGameTime})
+        (#{USER_ID},#{USER_PEASANT_WINNUM},#{USER_PEASANT_LOSENUM},#{USER_LORD_WINNUM},#{USER_LORD_LOSENUM},#{USER_LAST_GAME_TIME})
     </insert>
 
 
     <update id="updateDelta" parameterType="entity.UserBonus">
 
         update USER_BONUS_INFO set
-        USER_PEASANT_WINNUM=USER_PEASANT_WINNUM+#{peasantWinNum},
-        USER_PEASANT_LOSENUM=USER_PEASANT_LOSENUM+#{peasantLoseNum},
-        USER_LORD_WINNUM=USER_LORD_WINNUM+#{lordWinNum},
-        USER_LORD_LOSENUM=USER_LORD_LOSENUM+#{lordLoseNum},
-        USER_LAST_GAME_TIME =#{lastGameTime}
-        where USER_ID=#{userID}
+        USER_PEASANT_WINNUM=USER_PEASANT_WINNUM+#{USER_PEASANT_WINNUM=USER_PEASANT_WINNUM},
+        USER_PEASANT_LOSENUM=USER_PEASANT_LOSENUM+#{USER_PEASANT_LOSENUM},
+        USER_LORD_WINNUM=USER_LORD_WINNUM+#{USER_LORD_WINNUM},
+        USER_LORD_LOSENUM=USER_LORD_LOSENUM+#{USER_LORD_LOSENUM},
+        USER_LAST_GAME_TIME =#{USER_LAST_GAME_TIME}
+        where USER_ID=#{USER_ID}
     </update>
 
     <select id="select" parameterType="String" resultType="entity.UserBonus">

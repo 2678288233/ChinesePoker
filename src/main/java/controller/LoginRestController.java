@@ -5,10 +5,7 @@ import entity.User;
 import entity.UserInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -16,6 +13,7 @@ import java.util.Map;
 @RestController
 @RequestMapping("/login")
 @ContextConfiguration(locations = {"classpath:config/spring-db.xml"})
+@CrossOrigin("*")
 public class LoginRestController {
     public UserInfoDao getUserInfoDao() {
         return userInfoDao;
@@ -48,15 +46,16 @@ public class LoginRestController {
         if(userInfoDao.selectByName(username)!=null){
             mp.put("status","fail");
             mp.put("error","repetitive username");
+            System.out.println("456");
             return mp;
         }
-
+        System.out.println("123");
         UserInfo userInfo=new UserInfo();
         userInfo.setUSER_ID(User.generaterID());
         userInfo.setUSER_NAME(username);
         userInfo.setUSER_PWD(password);
         userInfoDao.insert(userInfo);
-        mp.put("status","successful");
+        mp.put("status","success");
         mp.put("error","");
         return mp;
     }
@@ -73,7 +72,7 @@ public class LoginRestController {
         }
         userInfo.setUSER_PWD(newPWD);
         userInfoDao.update(userInfo);
-        mp.put("status","successful");
+        mp.put("status","success");
         mp.put("error","");
         return mp;
     }

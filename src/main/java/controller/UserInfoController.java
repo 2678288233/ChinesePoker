@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/userInfo")
 @ContextConfiguration(locations = {"classpath:config/spring-db.xml"})
+@CrossOrigin("*")
 public class UserInfoController {
 
     public UserInfoDao getUserInfoDao() {
@@ -45,13 +46,13 @@ public class UserInfoController {
     private Gson gson;
     private UserInfoDao userInfoDao;
     private UserBonusDao userBonusDao;
-    @GetMapping("/basic/{id}")
-    public UserInfo basicInfo(@PathVariable String id){
+    @PostMapping("/basic")
+    public UserInfo basicInfo(@RequestParam String id){
 
         return userInfoDao.select(id);
     }
-    @PostMapping("/detail/{id}")
-    public UserBonus detailInfo(@PathVariable String id){
+    @PostMapping("/detail")
+    public UserBonus detailInfo(@RequestParam String id){
         return userBonusDao.select(id);
     }
 

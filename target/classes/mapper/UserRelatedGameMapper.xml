@@ -4,7 +4,7 @@
 
     <insert id="insert" parameterType="entity.UserRelatedGame">
         insert into USER_RELATED_GAME(USER_ID,GAME_ID,USER_SIGN,USER_SCORE)
-        values (#{userID},#{gameID},#{userSign},#{userScore})
+        values (#{USER_ID},#{GAME_ID},#{USER_SIGN},#{USER_SCORE})
     </insert>
 
     <select id="selectByUser" parameterType="String" resultType="entity.UserRelatedGame">
