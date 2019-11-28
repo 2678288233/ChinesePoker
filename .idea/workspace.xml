@@ -8,14 +8,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2758511d-2dab-47fd-8d2d-367683bcf6a9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bat/restAPI.bat" beforeDir="false" afterPath="$PROJECT_DIR$/bat/restAPI.bat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/LoginRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/LoginRestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/UserInfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/UserInfoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ChinesePoker.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/controller/LoginRestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/controller/LoginRestController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/controller/UserInfoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/controller/UserInfoController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controller/LoginRestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/LoginRestController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controller/UserInfoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/UserInfoController.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -296,7 +289,8 @@
       <workItem from="1574745098295" duration="2827000" />
       <workItem from="1574749652701" duration="2458000" />
       <workItem from="1574903279462" duration="3592000" />
-      <workItem from="1574917720421" duration="5406000" />
+      <workItem from="1574917720421" duration="5612000" />
+      <workItem from="1574927838645" duration="154000" />
     </task>
     <servers />
   </component>

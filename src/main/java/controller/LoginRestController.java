@@ -35,6 +35,7 @@ public class LoginRestController {
         if (password.equals(userInfo.getUSER_PWD())){
             mp.put("status","success");
             mp.put("error","");
+            mp.put("id",userInfo.getUSER_ID());
         }else{
             mp.put("status","fail");
             mp.put("error","wrong password");
@@ -62,6 +63,7 @@ public class LoginRestController {
         userInfoDao.insert(userInfo);
         mp.put("status","success");
         mp.put("error","");
+        mp.put("id",userInfo.getUSER_ID());
         return mp;
     }
     @PostMapping("/changePWD")//@RequestParam("userID")String userID,@RequestParam("oldPWD")String oldPWD,@RequestParam("newPWD")String newPWD
