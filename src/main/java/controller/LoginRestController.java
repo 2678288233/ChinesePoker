@@ -25,8 +25,10 @@ public class LoginRestController {
 
 
     private UserInfoDao userInfoDao;
-    @PostMapping("/login")
-    public Map<String,String> login(@RequestParam("username")String username,@RequestParam("password") String password){
+    @PostMapping("/login")//String username,@RequestParam("password") String password
+    public Map<String,String> login(@RequestBody Map<String, String> user){
+        String username=user.get("username");
+        String password=user.get("password");
         UserInfo userInfo=userInfoDao.selectByName(username);
         Map<String,String>mp=new HashMap<>();
 
@@ -40,8 +42,11 @@ public class LoginRestController {
         return mp;
     }
 
-    @PostMapping("/register")
-    public Map<String,String> register(@RequestParam("username")String username,@RequestParam("password")String password){
+    @PostMapping("/register")//@RequestParam("username")String username,@RequestParam("password")String password
+    public Map<String,String> register(@RequestBody Map<String, String> user){
+        String username=user.get("username");
+        String password=user.get("password");
+
         Map<String,String>mp=new HashMap<>();
         if(userInfoDao.selectByName(username)!=null){
             mp.put("status","fail");
@@ -59,10 +64,13 @@ public class LoginRestController {
         mp.put("error","");
         return mp;
     }
-    @PostMapping("/changePWD")
-    public Map<String,String >changePWD(@RequestParam("userID")String userID,
-                                        @RequestParam("oldPWD")String oldPWD,
-                                        @RequestParam("newPWD")String newPWD){
+    @PostMapping("/changePWD")//@RequestParam("userID")String userID,@RequestParam("oldPWD")String oldPWD,@RequestParam("newPWD")String newPWD
+
+
+    public Map<String,String >changePWD(@RequestBody Map<String, String> user){
+        String userID=user.get("userID");
+        String oldPWD=user.get("oldPWD");
+        String newPWD=user.get("newPWD");
         UserInfo userInfo=userInfoDao.select(userID);
         Map<String,String>mp=new HashMap<>();
         if(!userInfo.getUSER_PWD().equals(oldPWD)){

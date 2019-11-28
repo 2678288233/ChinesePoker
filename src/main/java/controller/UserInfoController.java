@@ -12,7 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.web.bind.annotation.*;
 
-
+import java.util.Map;
 
 
 @RestController
@@ -48,13 +48,14 @@ public class UserInfoController {
     private Gson gson;
     private UserInfoDao userInfoDao;
     private UserBonusDao userBonusDao;
-    @PostMapping("/basic")
-    public UserInfo basicInfo(@RequestParam String id){
-
+    @PostMapping("/basic")//@RequestParam String id
+    public UserInfo basicInfo(@RequestBody Map<String,String>user){
+        String id=user.get("id");
         return userInfoDao.select(id);
     }
-    @PostMapping("/detail")
-    public UserBonus detailInfo(@RequestParam String id){
+    @PostMapping("/detail")//@RequestParam String id
+    public UserBonus detailInfo(@RequestBody Map<String,String>user){
+        String id=user.get("id");
         return userBonusDao.select(id);
     }
 
