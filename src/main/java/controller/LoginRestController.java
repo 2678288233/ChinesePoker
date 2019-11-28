@@ -13,7 +13,7 @@ import java.util.Map;
 @RestController
 @RequestMapping("/login")
 @ContextConfiguration(locations = {"classpath:config/spring-db.xml"})
-@CrossOrigin("*")
+@CrossOrigin(origins = "http://localhost:8080",allowCredentials = "true")
 public class LoginRestController {
     public UserInfoDao getUserInfoDao() {
         return userInfoDao;

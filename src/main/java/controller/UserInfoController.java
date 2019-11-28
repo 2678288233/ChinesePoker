@@ -13,10 +13,12 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.web.bind.annotation.*;
 
 
+
+
 @RestController
 @RequestMapping("/userInfo")
 @ContextConfiguration(locations = {"classpath:config/spring-db.xml"})
-@CrossOrigin("*")
+@CrossOrigin(origins = "http://localhost:8080",allowCredentials = "true")
 public class UserInfoController {
 
     public UserInfoDao getUserInfoDao() {

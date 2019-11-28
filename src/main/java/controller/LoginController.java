@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.Map;
 
-@Controller
-@RequestMapping("/login")
+//@Controller
+//@RequestMapping("/login")
 public class LoginController {
 
     public Map<String, User> getCookieUserMap() {
