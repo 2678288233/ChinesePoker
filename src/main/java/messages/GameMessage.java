@@ -8,6 +8,67 @@ import java.util.Map;
 
 public class GameMessage {
 
+
+
+    @SerializedName("type")
+    private GameMessageType gameMessageType;
+
+    @SerializedName("roomId")
+    private String roomId;
+
+    @SerializedName("userId")
+    private String userID;
+
+    @SerializedName("roomDescription")
+    private String roomDescription;
+//    @SerializedName("oldPwd")
+//    private String oldPwd;
+//
+//    @SerializedName("newPwd")
+//    private String newPwd;
+
+    @SerializedName("cards")
+    private Card[] cards;
+
+    @SerializedName("doubleRate")
+    private Double doubleRate;
+
+    public GameMessage(){}
+    public GameMessage(GameMessageType type){gameMessageType=type;}
+
+    transient static Gson gson=new Gson();
+
+    public static GameMessage parseGameMessage(String message){
+        GameMessage gameMessage=gson.fromJson(message,GameMessage.class);
+        return gameMessage;
+    }
+
+    public enum GameMessageType {
+        ready, unready,timeout,play,
+        enterRoom,createRoom,leaveRoom,
+
+        getRoomInfo,
+        //dispatchCards,
+        getLord,passLord,competeLord,
+        //bonusCards,
+        //gameover,
+        doubleScore,
+        reconnection;
+    }
+
+    @Override
+    public String toString() {
+        return "roomID:"+roomId+" ; type:"+gameMessageType+" ;doubleRate:"+doubleRate;
+    }
+
+    public String getUserID() {
+        return userID;
+    }
+
+    public void setUserID(String userID) {
+        this.userID = userID;
+    }
+
     public GameMessageType getGameMessageType() {
         return gameMessageType;
     }
@@ -22,22 +83,6 @@ public class GameMessage {
 
     public void setRoomId(String roomId) {
         this.roomId = roomId;
-    }
-
-    public String getOldPwd() {
-        return oldPwd;
-    }
-
-    public void setOldPwd(String oldPwd) {
-        this.oldPwd = oldPwd;
-    }
-
-    public String getNewPwd() {
-        return newPwd;
-    }
-
-    public void setNewPwd(String newPwd) {
-        this.newPwd = newPwd;
     }
 
     public Card[] getCards() {
@@ -64,48 +109,11 @@ public class GameMessage {
         GameMessage.gson = gson;
     }
 
-    @SerializedName("type")
-    private GameMessageType gameMessageType;
-
-    @SerializedName("roomId")
-    private String roomId;
-
-    @SerializedName("oldPwd")
-    private String oldPwd;
-
-    @SerializedName("newPwd")
-    private String newPwd;
-
-    @SerializedName("cards")
-    private Card[] cards;
-
-    @SerializedName("doubleRate")
-    private Double doubleRate;
-
-    public GameMessage(){}
-    public GameMessage(GameMessageType type){}
-
-    static Gson gson=new Gson();
-
-    public static GameMessage parseGameMessage(String message){
-        GameMessage gameMessage=gson.fromJson(message,GameMessage.class);
-        return gameMessage;
+    public String getRoomDescription() {
+        return roomDescription;
     }
 
-    public enum GameMessageType {
-        ready, unready,timeout,play,
-        enterRoom,createRoom,
-
-        getRoomInfo,
-        //dispatchCards,
-        getLord,passLord,competeLord,
-        //bonusCards,
-        //gameover,
-        doubleScore;
-    }
-
-    @Override
-    public String toString() {
-        return "roomID:"+roomId+" ; type:"+gameMessageType+" newPwd:"+newPwd+" ;doubleRate:"+doubleRate;
+    public void setRoomDescription(String roomDescription) {
+        this.roomDescription = roomDescription;
     }
 }

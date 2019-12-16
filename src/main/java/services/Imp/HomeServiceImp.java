@@ -2,6 +2,7 @@ package services.Imp;
 
 import entity.Room;
 import entity.User;
+import exceptions.NotInHomeException;
 import services.HomeService;
 
 import java.util.List;
@@ -20,7 +21,12 @@ public class HomeServiceImp implements HomeService {
 
     @Override
     public void leaveHome() {
-        RoomDispatch.leaveHome(user);
+
+        try {
+            RoomDispatch.leaveHome(user);
+        } catch (NotInHomeException e) {
+            //e.printStackTrace();
+        }
     }
 
 }

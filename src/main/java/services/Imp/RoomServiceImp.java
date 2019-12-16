@@ -2,6 +2,7 @@ package services.Imp;
 
 import entity.Room;
 import entity.User;
+import exceptions.NotInHomeException;
 import messages.GameChan;
 import messages.GameMessage;
 
@@ -17,12 +18,20 @@ public class RoomServiceImp implements RoomService {
 
     @Override
     public void createRoom(Room room) {
-        RoomDispatch.createRoom(user,room);
+        try {
+            RoomDispatch.createRoom(user,room);
+        } catch (NotInHomeException e) {
+            //e.printStackTrace();
+        }
     }
 
     @Override
     public void enterRoom(String roomID) {
-        RoomDispatch.enterRoom(user,roomID);
+        try {
+            RoomDispatch.enterRoom(user,roomID);
+        } catch (NotInHomeException e) {
+            //e.printStackTrace();
+        }
     }
 
     @Override

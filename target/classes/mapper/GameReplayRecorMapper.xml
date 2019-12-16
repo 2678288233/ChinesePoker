@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.GameReplayRecordDao">
+    <insert id="insert" parameterType="entity.GameReplayRecord">
+        insert into GAME_REPLAY_RECORD(GAME_ID,USER_ID,CARD_RECORD,PLAY_TIME)
+        values (#{GAME_ID},#{USER_ID},#{CARD_RECORD},#{PLAY_TIME})
+    </insert>
+    <select id="selectByGameID" parameterType="String" resultType="entity.GameReplayRecord">
+        select * from GAME_REPLAY_RECORD
+        where GAME_ID=#{gameID}
+    </select>
+</mapper>

@@ -13,4 +13,5 @@ public interface GameService {
     void competeLord();
     void doubleScore();
     void pass();
+    void reconnection();
 }

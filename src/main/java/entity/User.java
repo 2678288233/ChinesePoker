@@ -1,5 +1,6 @@
 package entity;
 
+import domain.UserDomain;
 import messages.GameChan;
 import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketSession;
@@ -108,6 +109,14 @@ public class User {
     }
 
     public enum UserStatus{
-        unready,ready,play
+        unready,ready,play,trusteeship
+    }
+
+    public UserDomain generator(){
+        UserDomain userDomain=new UserDomain();
+        userDomain.setSeat(getSeat());
+        userDomain.setStatus(getStatus());
+        userDomain.setUserID(getID());
+        return userDomain;
     }
 }

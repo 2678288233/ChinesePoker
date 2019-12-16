@@ -1,0 +1,12 @@
+{"type":"createRoom","roomId":"123","roomDescription":"roomDescription"}
+{"type":"enterRoom","roomId":"111"}
+{"type":"leaveRoom"}
+{"type":"roomlist","list":[{"roomId":"123","description":"12334","userNum":0},{"roomId":"543","description":"agfdsgshfd","userNum":0},{"roomId":"fhg","description":"dfhgdg","userNum":0}]}
+{"type":"ready"}
+{"type":"unready"}
+{"type":"timeout"}
+{"type":"getLord"}
+{"type":"competeLord"}
+{"type":"passLord"}
+{"type":"play","cards":[{"value":0},{"value":1},{"value":2},{"value":3},{"value":4},{"value":5},{"value":6},{"value":7},{"value":8},{"value":9},{"value":10},{"value":11},{"value":12},{"value":13},{"value":14},{"value":15},{"value":16}]}
+{"type":"doubleScore","doubleRate":2.0}

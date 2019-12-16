@@ -3,8 +3,8 @@
 <mapper namespace="dao.GameInfoDao">
 
     <insert id="insert" parameterType="entity.GameInfo">
-        insert into GAME_INFO(GAME_ID,GAME_START_TIME,GAME_LAST_TIME)
-        values (#{GAME_ID},#{GAME_START_TIME},#{GAME_LAST_TIME})
+        insert into GAME_INFO(GAME_ID,GAME_START_TIME,GAME_LAST_TIME,FIRST_USER_ID,SECOND_USER_ID,THIRD_USER_ID)
+        values (#{GAME_ID},#{GAME_START_TIME},#{GAME_LAST_TIME},#{FIRST_USER_ID},#{SECOND_USER_ID},#{THIRD_USER_ID})
     </insert>
 
     <select id="select" parameterType="String" resultType="entity.GameInfo">

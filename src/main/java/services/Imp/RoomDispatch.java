@@ -1,21 +1,25 @@
 package services.Imp;
 
+import domain.RoomSnapShootDomain;
 import entity.Room;
 import entity.User;
 import exceptions.*;
+import log.Logger;
 import messages.GameChan;
 import messages.GameMessage;
 import messages.MessageSender;
+import messages.RoomMessage;
 
 import java.io.IOException;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
+import java.util.stream.Collectors;
 
 public class RoomDispatch {
-    private static Map<String,User> userMap=new HashMap<>();
-    private static Map<String,User> homeUserMap=new HashMap<>();
-    private static Map<String,Room> roomMap=new HashMap<>();
-    private static Map<String,String> userRoomMap=new HashMap<>();
+    private volatile static Map<String,User> userMap=new HashMap<>();
+    private volatile static Map<String,User> homeUserMap=new HashMap<>();
+    private volatile static Map<String,Room> roomMap=new HashMap<>();
+    private volatile static Map<String,String> userRoomMap=new HashMap<>();
 
     //优先级  roommpLock > room.userLock > homeUsermpLock
     //
@@ -25,6 +29,7 @@ public class RoomDispatch {
     //private static final Object userroommpLock=new Object();
 
     public static void enterHome(User user){
+        Logger.log(user.getID()+" enterHome "+"in RoomDispatch.enterHome");
         synchronized (usermpLock){
             if(!userMap.containsKey(user.getID())){
                 userMap.put(user.getID(),user);
@@ -41,7 +46,8 @@ public class RoomDispatch {
             }
         }
     }
-    public static void leaveHome(User user){
+    public static void leaveHome(User user) throws NotInHomeException {
+        Logger.log(user.getID()+" leaveHome "+"in RoomDispatch.leaveHome");
         synchronized (homeUsermpLock){
             if(!homeUserMap.containsKey(user.getID())){
                 throw new NotInHomeException("Not In Home ,cannot leave home!");
@@ -51,10 +57,13 @@ public class RoomDispatch {
 
     }
 
-    public static void createRoom(User user,Room room){
+    public static void createRoom(User user,Room room) throws NotInHomeException {
+        Logger.log(user.getID()+" createRoom "+room.getID()+" in RoomDispatch.createRoom");
         synchronized (roommpLock){
             if(roomMap.containsKey(room.getID())){
-                throw new RepetitiveRoomIDException("Repetitive Room ID");
+                //throw new RepetitiveRoomIDException("Repetitive Room ID");
+                roomResponse(user,"createRoom","error","Repetitive Room ID");
+                return;
             }
             roomMap.put(room.getID(),room);
             synchronized (room.userLock) {
@@ -63,21 +72,34 @@ public class RoomDispatch {
                 user.setGameChan(room.getGameChan());
                 user.setRoomID(room.getID());
                 room.addPlayer(user);
-                new Thread(new RoomWorker(room)).start();
+
+                Logger.log("create thread RoomID "+room.getID());
+                Thread thread=new Thread(new RoomWorker(room));
+                thread.setName(room.getID());
+                thread.start();
             }
+            roomResponse(user,"createRoom","success","");
         }
     }
 
-    public static void enterRoom(User user,String roomID){
-
+    public static void enterRoom(User user,String roomID) throws NotInHomeException {
+        Logger.log(user.getID()+" enterRoom "+roomID+" in RoomDispatch.enterRoom");
         synchronized (roommpLock){
             if(!roomMap.containsKey(roomID)){
-                throw new NonexistedRoomException("Nonexisted Room!");
+                //throw new NonexistedRoomException("NonExisted Room!");
+                roomResponse(user,"enterRoom","error","NonExisted Room!");
+                return;
+            }
+            if(roomMap.get(roomID).getPlayersNum()==3){
+                roomResponse(user,"enterRoom","error","Full");
+                return;
             }
             Room room=roomMap.get(roomID);
             synchronized (room.userLock) {
                 if(room.getPlayersNum()>3){
-                    throw new FullRoomException("The Room is FULL!");
+                    //throw new FullRoomException("The Room is FULL!");
+                    roomResponse(user,"enterRoom","error","The Room is FULL!");
+                    return;
                 }
                 userRoomMap.put(user.getID(), room.getID());
                 leaveHome(user);
@@ -85,31 +107,39 @@ public class RoomDispatch {
                 user.setRoomID(room.getID());
                 room.addPlayer(user);
             }
+            roomResponse(user,"enterRoom","success","");
         }
     }
     public static void leaveRoom(User user){
+        Logger.log(user.getID()+" leaveRoom  in RoomDispatch.leaveRoom");
         String roomID=userRoomMap.get(user.getID());
         synchronized (roommpLock) {
             if (!roomMap.containsKey(roomID)) {
-                throw new NonexistedRoomException("Nonexisted Room!");
+                //throw new NonexistedRoomException("Nonexisted Room!");
+                roomResponse(user,"leaveRoom","error","NonExisted Room");
+                return;
             }
             Room room = roomMap.get(roomID);
             synchronized (room.userLock) {
-                room.remoevPlayer(user.getID());
+                room.removePlayer(user.getID());
                 userRoomMap.remove(user.getID());
                 user.setRoomID(null);
                 user.setGameChan(null);
             }
         }
         enterHome(user);
+        roomResponse(user,"leaveRoom","success","");
     }
+    private static void roomResponse(User user,String type,String status,String cause){
 
+        MessageSender.sendMsg(user.getWebSocketSession(),new RoomMessage(type,cause,status));
+    }
 
     static class HomeWorker implements Runnable{
 
         Map<String,User> homeUserMap;
         Map<String,Room> roomMap;
-        static final int interval=2; //单位：s
+        static final int interval=4; //单位：s
 
         HomeWorker(Map<String,User> homeUserMap, Map<String,Room> roomMap){
 
@@ -125,12 +155,14 @@ public class RoomDispatch {
         }
         @Override
         public void run() {
+            Logger.log("thread Home Started!");
             while (true){
                 synchronized (RoomDispatch.homeUsermpLock) {
                     if(homeUserMap.size()==0){
                         return;
                     }
                     synchronized (RoomDispatch.roommpLock) {
+                        checkRoomMap();
                         List<Room> tem=new ArrayList<>(roomMap.values());
 
                         if (!roomMap.isEmpty()) {
@@ -153,6 +185,13 @@ public class RoomDispatch {
             }
 
         }
+        private void checkRoomMap(){
+            List<String> invalid=new ArrayList<>();
+            roomMap.forEach((key,value)->{
+                if (value.getPlayersNum()==0) invalid.add(key);
+            });
+            invalid.forEach((string -> roomMap.remove(string)));
+        }
     }
 
     static class RoomWorker implements Runnable{
@@ -164,13 +203,16 @@ public class RoomDispatch {
 
         @Override
         public void run() {
+            Logger.log("thread RoomID "+room.getID()+" Started!");
             GameChan gameChan=room.getGameChan();
             while (true){
 
                 synchronized (room.userLock)
                 {
-                    if(room.getPlayersNum()==0)
+                    if(room.getPlayersNum()==0) {
+                        Logger.log("thread RoomID "+room.getID()+" Stopped!");
                         return;
+                    }
                     if(room.getPlayersNum()>3||room.getPlayersNum()<0){
                         throw new RuntimeException("Invaild person number something must be wrong.");
                     }
@@ -189,7 +231,24 @@ public class RoomDispatch {
 
         private void handleMessage(GameMessage gameMessage){
 
-
+            switch (gameMessage.getGameMessageType()){
+                case passLord:
+                    case competeLord:
+                        case doubleScore:
+                            case getLord:
+                                case unready:
+                                    case timeout:
+                                        case ready:
+                                            case play:
+                                                MessageSender.sendMsgToRoom(room,gameMessage);break;
+                case getRoomInfo:
+                    MessageSender.sendRoomDomain(room.getUser(gameMessage.getUserID()),room.generator());break;
+                case reconnection:
+                    RoomSnapShootDomain roomSnapShootDomain=new RoomSnapShootDomain();
+                    roomSnapShootDomain.setRoomDomain(room.generator());
+                    roomSnapShootDomain.setGameSnapShootDomain(room.getCardAudit().generator(gameMessage.getUserID()));
+                    MessageSender.sendRoomSnapShootDomain(room.getUser(gameMessage.getUserID()),roomSnapShootDomain);break;
+            }
 
 
 

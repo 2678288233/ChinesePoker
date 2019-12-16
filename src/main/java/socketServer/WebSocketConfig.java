@@ -38,12 +38,12 @@ public class WebSocketConfig implements WebSocketConfigurer {
 
     public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
         //添加一个处理器还有定义处理器的处理路径
-        registry.addHandler(webSocketHandler, "/ws").addInterceptors(pokerHandshakeInterceptor);
+        registry.addHandler(webSocketHandler, "/ws").addInterceptors(pokerHandshakeInterceptor).setAllowedOrigins("*");
         /*
          * SockJS能根据浏览器能否支持websocket来提供三种方式用于websocket请求，
          * 三种方式分别是 WebSocket, HTTP Streaming以及 HTTP Long Polling
          */
-        registry.addHandler(webSocketHandler, "/ws/sockjs").addInterceptors(pokerHandshakeInterceptor).withSockJS();
+        registry.addHandler(webSocketHandler, "/ws/sockjs").addInterceptors(pokerHandshakeInterceptor).setAllowedOrigins("*").withSockJS();
     }
 
 }

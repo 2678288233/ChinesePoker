@@ -6,13 +6,16 @@ import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 
 public class GameChan  {
-    private BlockingQueue<GameMessage> blockingQueue=new ArrayBlockingQueue<>(3);
+    private static int DEFAULT_BLOCKING_QUEUE_CAPACITY=6;
+
+    private BlockingQueue<GameMessage> blockingQueue=new ArrayBlockingQueue<>(DEFAULT_BLOCKING_QUEUE_CAPACITY);
 
     public synchronized void  send(GameMessage gameMessage) throws InterruptedException {
         blockingQueue.put(gameMessage);
     }
 
     public synchronized void  send(User user, GameMessage gameMessage) throws InterruptedException {
+        gameMessage.setUserID(user.getID());
         blockingQueue.put(gameMessage);
     }
 

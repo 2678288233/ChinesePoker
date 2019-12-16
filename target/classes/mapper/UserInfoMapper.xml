@@ -16,7 +16,7 @@
     <update id="update" parameterType="entity.UserInfo">
 
         update USER_INFO set
-        <if test="userPWD!=null"> USER_PWD=#{USER_PWD},</if>
+        <if test="USER_PWD!=null"> USER_PWD=#{USER_PWD},</if>
          USER_SCORE= #{USER_SCORE},USER_WINNUM=#{USER_WINNUM},USER_LOSENUM=#{USER_LOSENUM}
         where USER_ID=#{USER_ID}
     </update>

@@ -17,6 +17,8 @@
 
     <context:component-scan base-package="dao.**.impl" />
     <context:component-scan base-package="dao" />
+    <context:component-scan base-package="services.Imp"/>
+
     <context:property-placeholder location="classpath:config/settings/druid.properties" />
 
 
