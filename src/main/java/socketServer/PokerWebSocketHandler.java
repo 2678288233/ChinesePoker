@@ -15,6 +15,7 @@ import org.springframework.web.socket.WebSocketHandler;
 import org.springframework.web.socket.WebSocketMessage;
 import org.springframework.web.socket.WebSocketSession;
 import services.CardAuditService;
+import services.Imp.RoomDispatch;
 
 import javax.annotation.Resource;
 
@@ -118,8 +119,8 @@ public class PokerWebSocketHandler implements WebSocketHandler {
             /* roomService*/
             case enterRoom:user.getRoomService().enterRoom(gameMessage.getRoomId());break;
             case createRoom:
-                Room room=new Room(gameMessage.getRoomId());
-                room.setDescript(gameMessage.getRoomDescription());
+                Room room=new Room(String.valueOf(RoomDispatch.getRoomID()));
+                //room.setDescript(gameMessage.getRoomDescription());
                 room.setGameChan(new GameChan());
                 room.setCardAudit(cardAuditService.getCardAudit());
                 user.getRoomService().createRoom(room);

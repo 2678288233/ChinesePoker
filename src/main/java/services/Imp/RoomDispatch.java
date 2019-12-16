@@ -13,6 +13,7 @@ import messages.RoomMessage;
 import java.io.IOException;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
 public class RoomDispatch {
@@ -62,7 +63,7 @@ public class RoomDispatch {
         synchronized (roommpLock){
             if(roomMap.containsKey(room.getID())){
                 //throw new RepetitiveRoomIDException("Repetitive Room ID");
-                roomResponse(user,"createRoom","error","Repetitive Room ID");
+                roomResponse(user,"createRoom","error","Repetitive Room ID",room.getID());
                 return;
             }
             roomMap.put(room.getID(),room);
@@ -78,7 +79,7 @@ public class RoomDispatch {
                 thread.setName(room.getID());
                 thread.start();
             }
-            roomResponse(user,"createRoom","success","");
+            roomResponse(user,"createRoom","success","",room.getID());
         }
     }
 
@@ -87,18 +88,18 @@ public class RoomDispatch {
         synchronized (roommpLock){
             if(!roomMap.containsKey(roomID)){
                 //throw new NonexistedRoomException("NonExisted Room!");
-                roomResponse(user,"enterRoom","error","NonExisted Room!");
+                roomResponse(user,"enterRoom","error","NonExisted Room!",roomID);
                 return;
             }
             if(roomMap.get(roomID).getPlayersNum()==3){
-                roomResponse(user,"enterRoom","error","Full");
+                roomResponse(user,"enterRoom","error","Full",roomID);
                 return;
             }
             Room room=roomMap.get(roomID);
             synchronized (room.userLock) {
                 if(room.getPlayersNum()>3){
                     //throw new FullRoomException("The Room is FULL!");
-                    roomResponse(user,"enterRoom","error","The Room is FULL!");
+                    roomResponse(user,"enterRoom","error","The Room is FULL!",roomID);
                     return;
                 }
                 userRoomMap.put(user.getID(), room.getID());
@@ -107,7 +108,7 @@ public class RoomDispatch {
                 user.setRoomID(room.getID());
                 room.addPlayer(user);
             }
-            roomResponse(user,"enterRoom","success","");
+            roomResponse(user,"enterRoom","success","",roomID);
         }
     }
     public static void leaveRoom(User user){
@@ -116,7 +117,7 @@ public class RoomDispatch {
         synchronized (roommpLock) {
             if (!roomMap.containsKey(roomID)) {
                 //throw new NonexistedRoomException("Nonexisted Room!");
-                roomResponse(user,"leaveRoom","error","NonExisted Room");
+                roomResponse(user,"leaveRoom","error","NonExisted Room",roomID);
                 return;
             }
             Room room = roomMap.get(roomID);
@@ -128,11 +129,11 @@ public class RoomDispatch {
             }
         }
         enterHome(user);
-        roomResponse(user,"leaveRoom","success","");
+        roomResponse(user,"leaveRoom","success","",roomID);
     }
-    private static void roomResponse(User user,String type,String status,String cause){
+    private static void roomResponse(User user,String type,String status,String cause,String roomID){
 
-        MessageSender.sendMsg(user.getWebSocketSession(),new RoomMessage(type,status,cause));
+        MessageSender.sendMsg(user.getWebSocketSession(),new RoomMessage(type,status,cause,roomID));
     }
 
     static class HomeWorker implements Runnable{
@@ -253,5 +254,11 @@ public class RoomDispatch {
 
 
         }
+    }
+
+
+    static volatile AtomicInteger roomID=new AtomicInteger(0);
+    public static int getRoomID(){
+        return roomID.getAndAdd(1);
     }
 }
