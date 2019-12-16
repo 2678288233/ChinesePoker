@@ -7,145 +7,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2758511d-2dab-47fd-8d2d-367683bcf6a9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/Card.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/GameInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/GameInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/GameRecord.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/Room.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/exceptions/NotInHomeException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/exceptions/NotInHomeException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/messages/GameChan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/GameChan.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/messages/GameMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/GameMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageSender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageSender.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/services/GameService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/GameService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/services/Imp/GameServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/Imp/GameServiceImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/services/Imp/HomeServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/Imp/HomeServiceImp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/services/Imp/RoomDispatch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/Imp/RoomDispatch.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/services/Imp/RoomServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/Imp/RoomServiceImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/socketServer/PokerHandshakeInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/socketServer/PokerHandshakeInterceptor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/socketServer/PokerWebSocketHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/socketServer/PokerWebSocketHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/socketServer/WebSocketConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/socketServer/WebSocketConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/config/settings/druid.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config/settings/druid.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/config/spring-db.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config/spring-db.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/GameInfoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/GameInfoMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/spring-mvc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/spring-mvc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/sql/CREATE_CPG_TABLE.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/sql/CREATE_CPG_TABLE.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/test/daoTest/UserInfoDaoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/test/daoTest/UserInfoDaoTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/test/entityTest/GameMessageTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/test/entityTest/GameMessageTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/ChinesePoker.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/config/settings/druid.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/config/settings/druid.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/config/spring-db.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/config/spring-db.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/controller/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/controller/LoginController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/controller/LoginRestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/controller/LoginRestController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/controller/UserInfoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/controller/UserInfoController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/dao/GameInfoDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/dao/GameInfoDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/dao/UserBonusDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/dao/UserBonusDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/dao/UserInfoDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/dao/UserInfoDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/dao/UserRelatedGameDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/dao/UserRelatedGameDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/dao/impl/GameInfoDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/dao/impl/GameInfoDaoImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/dao/impl/UserBonusDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/dao/impl/UserBonusDaoImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/dao/impl/UserInfoDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/dao/impl/UserInfoDaoImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/dao/impl/UserRelatedGameDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/dao/impl/UserRelatedGameDaoImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/entity/Card.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/entity/Card.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/entity/GameInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/entity/GameInfo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/entity/GameRecord$Record.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/entity/GameRecord.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/entity/Room.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/entity/Room.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/entity/User$UserStatus.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/entity/User$UserStatus.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/entity/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/entity/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/entity/UserBonus.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/entity/UserBonus.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/entity/UserInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/entity/UserInfo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/entity/UserRelatedGame.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/entity/UserRelatedGame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/exceptions/BaseException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/exceptions/BaseException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/exceptions/FullRoomException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/exceptions/FullRoomException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/exceptions/InValidRoomIDException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/exceptions/InValidRoomIDException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/exceptions/NonexistedRoomException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/exceptions/NonexistedRoomException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/exceptions/NotInHomeException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/exceptions/NotInHomeException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/exceptions/ReentryHomeException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/exceptions/ReentryHomeException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/exceptions/ReentryRoomException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/exceptions/ReentryRoomException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/exceptions/RepetitiveRoomIDException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/exceptions/RepetitiveRoomIDException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/mapper/GameInfoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/mapper/GameInfoMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/mapper/UserInfoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/mapper/UserInfoMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/messages/GameChan.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/messages/GameChan.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/messages/GameMessage$GameMessageType.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/messages/GameMessage$GameMessageType.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/messages/GameMessage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/messages/GameMessage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/messages/MessageSender.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/messages/MessageSender.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/services/GameService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/services/GameService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/services/HomeService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/services/HomeService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/services/Imp/GameServiceImp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/services/Imp/GameServiceImp.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/services/Imp/HomeServiceImp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/services/Imp/HomeServiceImp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/services/Imp/RoomDispatch$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/services/Imp/RoomDispatch$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/services/Imp/RoomDispatch$HomeWorker.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/services/Imp/RoomDispatch$HomeWorker.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/services/Imp/RoomDispatch$RoomWorker.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/services/Imp/RoomDispatch$RoomWorker.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/services/Imp/RoomDispatch.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/services/Imp/RoomDispatch.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/services/Imp/RoomServiceImp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/services/Imp/RoomServiceImp.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/services/RoomService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/services/RoomService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/services/UserInfoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/services/UserInfoService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/socketServer/PokerHandshakeInterceptor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/socketServer/PokerHandshakeInterceptor.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/socketServer/PokerWebSocketHandler$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/socketServer/PokerWebSocketHandler$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/socketServer/PokerWebSocketHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/socketServer/PokerWebSocketHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/socketServer/WebSocketConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/socketServer/WebSocketConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/socketServer/WebSocketHelper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/socketServer/WebSocketHelper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/spring-mvc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/spring-mvc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/views/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/views/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/ChinesePoker.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/config/settings/druid.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/config/settings/druid.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/config/spring-db.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/config/spring-db.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controller/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/LoginController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controller/LoginRestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/LoginRestController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controller/UserInfoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/UserInfoController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dao/GameInfoDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/GameInfoDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dao/UserBonusDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/UserBonusDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dao/UserInfoDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/UserInfoDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dao/UserRelatedGameDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/UserRelatedGameDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dao/impl/GameInfoDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/impl/GameInfoDaoImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dao/impl/UserBonusDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/impl/UserBonusDaoImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dao/impl/UserInfoDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/impl/UserInfoDaoImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dao/impl/UserRelatedGameDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/impl/UserRelatedGameDaoImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/entity/Card.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entity/Card.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/entity/GameInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entity/GameInfo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/entity/GameRecord$Record.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/entity/GameRecord.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/entity/Room.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entity/Room.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/entity/User$UserStatus.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entity/User$UserStatus.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/entity/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entity/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/entity/UserBonus.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entity/UserBonus.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/entity/UserInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entity/UserInfo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/entity/UserRelatedGame.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entity/UserRelatedGame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/exceptions/BaseException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/exceptions/BaseException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/exceptions/FullRoomException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/exceptions/FullRoomException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/exceptions/InValidRoomIDException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/exceptions/InValidRoomIDException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/exceptions/NonexistedRoomException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/exceptions/NonexistedRoomException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/exceptions/NotInHomeException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/exceptions/NotInHomeException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/exceptions/ReentryHomeException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/exceptions/ReentryHomeException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/exceptions/ReentryRoomException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/exceptions/ReentryRoomException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/exceptions/RepetitiveRoomIDException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/exceptions/RepetitiveRoomIDException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/GameInfoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/GameInfoMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/UserInfoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/UserInfoMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/messages/GameChan.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/messages/GameChan.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/messages/GameMessage$GameMessageType.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/messages/GameMessage$GameMessageType.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/messages/GameMessage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/messages/GameMessage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/messages/MessageSender.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/messages/MessageSender.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/services/GameService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/GameService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/services/HomeService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/HomeService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/services/Imp/GameServiceImp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/Imp/GameServiceImp.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/services/Imp/HomeServiceImp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/Imp/HomeServiceImp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/services/Imp/RoomDispatch$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/Imp/RoomDispatch$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/services/Imp/RoomDispatch$HomeWorker.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/Imp/RoomDispatch$HomeWorker.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/services/Imp/RoomDispatch$RoomWorker.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/Imp/RoomDispatch$RoomWorker.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/services/Imp/RoomDispatch.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/Imp/RoomDispatch.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/services/Imp/RoomServiceImp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/Imp/RoomServiceImp.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/services/RoomService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/RoomService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/services/UserInfoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/UserInfoService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/socketServer/PokerHandshakeInterceptor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/socketServer/PokerHandshakeInterceptor.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/socketServer/PokerWebSocketHandler$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/socketServer/PokerWebSocketHandler$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/socketServer/PokerWebSocketHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/socketServer/PokerWebSocketHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/socketServer/WebSocketConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/socketServer/WebSocketConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/socketServer/WebSocketHelper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/socketServer/WebSocketHelper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/spring-mvc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/spring-mvc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/daoTest/UserInfoDaoTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/daoTest/UserInfoDaoTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/entityTest/GameMessageTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/entityTest/GameMessageTest.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -444,6 +322,7 @@
       <workItem from="1576403978951" duration="8169000" />
       <workItem from="1576423010912" duration="614000" />
       <workItem from="1576476300913" duration="40000" />
+      <workItem from="1576494374191" duration="1104000" />
     </task>
     <servers />
   </component>

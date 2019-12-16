@@ -132,7 +132,7 @@ public class RoomDispatch {
     }
     private static void roomResponse(User user,String type,String status,String cause){
 
-        MessageSender.sendMsg(user.getWebSocketSession(),new RoomMessage(type,cause,status));
+        MessageSender.sendMsg(user.getWebSocketSession(),new RoomMessage(type,status,cause));
     }
 
     static class HomeWorker implements Runnable{
