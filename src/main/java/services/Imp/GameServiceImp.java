@@ -104,4 +104,13 @@ public class GameServiceImp implements GameService {
         }
     }
 
+    @Override
+    public void getBaseCards() {
+        try{
+            gameChan.send(user,new GameMessage(GameMessage.GameMessageType.getBaseCards));
+        }catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

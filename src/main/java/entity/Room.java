@@ -70,6 +70,15 @@ public class Room {
         this.descript = descript;
     }
 
+    public int getReadyUserNum(){
+        int res=0;
+        for(User user:users) {
+            if (user.getStatus() == User.UserStatus.ready)
+                res++;
+        }
+        return res;
+
+    }
     public User getUser(String userId){
         for (User user : users) {
             if (userId.equals(user.getID()))

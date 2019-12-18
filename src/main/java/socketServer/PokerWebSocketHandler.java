@@ -18,7 +18,8 @@ import services.CardAuditService;
 import services.Imp.RoomDispatch;
 
 import javax.annotation.Resource;
-
+import java.util.HashMap;
+import java.util.Map;
 
 
 /**
@@ -34,6 +35,9 @@ public class PokerWebSocketHandler implements WebSocketHandler {
     public void setGson(Gson gson) {
         this.gson = gson;
     }
+
+
+
     @Resource(name = "gson")
     Gson gson;
 
@@ -53,10 +57,11 @@ public class PokerWebSocketHandler implements WebSocketHandler {
     public void afterConnectionEstablished(WebSocketSession webSocketSession) throws Exception {
 
 
-        User user=(User) webSocketSession.getAttributes().get("user");
+        User user=(User)webSocketSession.getAttributes().get("user");
         user.setWebSocketSession(webSocketSession);
-        user.getHomeService().enterHome();
-
+        if (user.getStatus()== User.UserStatus.login){
+            user.getHomeService().enterHome();
+        }
     }
 
     @Override
@@ -83,13 +88,7 @@ public class PokerWebSocketHandler implements WebSocketHandler {
         Logger.log("Websocket正常断开:" + webSocketSession.getId() + "已经关闭");
 
         User user=(User)webSocketSession.getAttributes().get("user");
-        try{
-            user.getHomeService().leaveHome();
-            if (user.getStatus()!= User.UserStatus.play&&user.getRoomID()!=null) user.getRoomService().leaveRoom();
-            if (user.getStatus()== User.UserStatus.play)user.setStatus(User.UserStatus.trusteeship);
-        }catch (Exception e){
-            e.printStackTrace();
-        }
+        user.logout();
 
     }
 
@@ -114,6 +113,8 @@ public class PokerWebSocketHandler implements WebSocketHandler {
             case competeLord:user.getGameService().competeLord();break;
             case doubleScore:user.getGameService().doubleScore();break;
             case passLord:user.getGameService().pass();break;
+            case getBaseCards:user.getGameService().getBaseCards();break;
+            case emptyResponse:break;
 
             case reconnection:user.getGameService().reconnection();break;
             /* roomService*/
@@ -131,4 +132,7 @@ public class PokerWebSocketHandler implements WebSocketHandler {
             default:throw new RuntimeException("UnKnown type");
         }
     }
+
+
+
 }

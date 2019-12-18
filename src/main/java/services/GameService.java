@@ -14,4 +14,5 @@ public interface GameService {
     void doubleScore();
     void pass();
     void reconnection();
+    void getBaseCards();
 }

@@ -16,12 +16,13 @@ public class HomeServiceImp implements HomeService {
 
     @Override
     public void enterHome() {
+
         RoomDispatch.enterHome(user);
+        user.setStatus(User.UserStatus.home);
     }
 
     @Override
     public void leaveHome() {
-
         try {
             RoomDispatch.leaveHome(user);
         } catch (NotInHomeException e) {

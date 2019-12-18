@@ -19,6 +19,8 @@
 
 
     <bean name="gson" class="com.google.gson.Gson"/>
+    <bean name="usersCache" class="java.util.HashMap"/>
+    <bean name="usersInfoCache" class="java.util.HashMap"/>
     <!-- <mvc:interceptors>
          <mvc:interceptor>
               拦截所有URL中包含/user/的请求

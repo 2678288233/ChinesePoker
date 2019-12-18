@@ -109,9 +109,16 @@ public class User {
     }
 
     public enum UserStatus{
-        unready,ready,play,trusteeship
+        unready,ready,play,trusteeship,home,login,logout
     }
 
+    public void logout(){
+        if(status==UserStatus.play) {status=UserStatus.trusteeship;return;}
+        else if(status==UserStatus.trusteeship) return;
+        else if(roomID!=null) roomService.leaveRoom();
+        if(status==UserStatus.home)homeService.leaveHome();
+        status=UserStatus.logout;
+    }
     public UserDomain generator(){
         UserDomain userDomain=new UserDomain();
         userDomain.setSeat(getSeat());
@@ -119,4 +126,5 @@ public class User {
         userDomain.setUserID(getID());
         return userDomain;
     }
+
 }

@@ -46,14 +46,14 @@ public class GameMessage {
     public enum GameMessageType {
         ready, unready,timeout,play,
         enterRoom,createRoom,leaveRoom,
-
-        getRoomInfo,
+        dealCards,getBaseCards,
+        getRoomInfo,emptyResponse,
         //dispatchCards,
         getLord,passLord,competeLord,
         //bonusCards,
         //gameover,
         doubleScore,
-        reconnection;
+        reconnection,
     }
 
     @Override

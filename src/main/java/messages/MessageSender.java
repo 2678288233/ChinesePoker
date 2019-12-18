@@ -45,6 +45,9 @@ public class MessageSender {
             }
 
     }
+    public static void sendMsg(User user, GameMessage gameMessage)  {
+        sendMsg(user.getWebSocketSession(),gameMessage);
+    }
     private static void sendMsg(WebSocketSession webSocketSession, TextMessage textMessage)  {
         if(webSocketSession.isOpen())
             try {

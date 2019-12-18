@@ -116,8 +116,10 @@ public class CardAudit {
         gameSnapShootDomain.setCurrentScore(scoreRate);
         return gameSnapShootDomain;
     }
-    private void deal(){
+    public void deal(){
 
+        userCards.forEach((key,val)->val.clear());
+        baseCard.clear();
         int[] randNums=randGen(TOTAL_CARDS_NUM);
         int j=0;
 
@@ -129,8 +131,8 @@ public class CardAudit {
         for (int i = TOTAL_CARDS_NUM-BASE_NUM; i <TOTAL_CARDS_NUM; i++) {
             baseCard.add(new Card(randNums[i]));
         }
-
     }
+
     private int[] randGen(int num){
         int[] res=new int[num];
         List<Integer> list=new LinkedList<>();

@@ -1,6 +1,8 @@
 package socketServer;
 
 import entity.User;
+import entity.UserInfo;
+import log.Logger;
 import org.springframework.http.server.ServerHttpRequest;
 import org.springframework.http.server.ServerHttpResponse;
 import org.springframework.http.server.ServletServerHttpRequest;
@@ -8,6 +10,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.socket.WebSocketHandler;
 import org.springframework.web.socket.server.HandshakeInterceptor;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -20,36 +23,36 @@ import java.util.Map;
  */
 @Component
 public class PokerHandshakeInterceptor implements HandshakeInterceptor {
+
+
+    @Resource(name = "usersCache")
+    HashMap<String,User> usersCache;
+    @Resource(name = "usersInfoCache")
+    HashMap<String, UserInfo> usersInfoCache;
+
     @Override
     public boolean beforeHandshake(ServerHttpRequest serverHttpRequest, ServerHttpResponse serverHttpResponse, WebSocketHandler webSocketHandler, Map<String, Object> map) throws Exception {
 
 
         Map<String,String>para=getPara(serverHttpRequest.getURI().toString());
-        if(para.get("user")==null) return false;
-        User user=new User();
-        user.setID(para.get("user"));
+        String userID;
+        if((userID=para.get("user"))==null) {
+            Logger.log("user is null!");
+            return false;
+        }
+        if(!usersCache.containsKey(userID)) {
+            Logger.log("userID "+userID+" is not login");
+            return false;
+        }
+        User user=usersCache.get(userID);
         map.put("user",user);
-        System.out.println(user.getID());
-
-
-//        if (serverHttpRequest instanceof ServletServerHttpRequest) {
-//            ServletServerHttpRequest servletRequest = (ServletServerHttpRequest) serverHttpRequest;
-//            HttpSession session = servletRequest.getServletRequest().getSession(false);
-//            if (session.getAttribute("user") != null) {
-//                map.put("user",session.getAttribute("user"));
-//                System.out.println("user login successfully");
-//            } else {
-//                System.out.println("user login failed");
-//                //return false;
-//            }
-//        }
-
+        Logger.log("  Handshake   "+user.getID());
         return true;
     }
 
     @Override
     public void afterHandshake(ServerHttpRequest serverHttpRequest, ServerHttpResponse serverHttpResponse, WebSocketHandler webSocketHandler, Exception e) {
-        System.out.println("--------------握手成功...");
+        Logger.log("--------------握手成功...");
     }
 
     private static Map<String,String> getPara(String uri){
@@ -63,4 +66,7 @@ public class PokerHandshakeInterceptor implements HandshakeInterceptor {
         }));
         return map;
     }
+
+//    private Map<String,User>userMap=new HashMap<>();
+
 }

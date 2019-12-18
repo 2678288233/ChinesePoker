@@ -31,6 +31,7 @@ public class RoomServiceImp implements RoomService {
     public void enterRoom(String roomID) {
         try {
             RoomDispatch.enterRoom(user,roomID);
+
         } catch (NotInHomeException e) {
             //e.printStackTrace();
         }

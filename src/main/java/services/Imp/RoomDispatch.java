@@ -1,6 +1,7 @@
 package services.Imp;
 
 import domain.RoomSnapShootDomain;
+import entity.Card;
 import entity.Room;
 import entity.User;
 import exceptions.*;
@@ -17,8 +18,12 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
 public class RoomDispatch {
+
+    //所有游戏中的用户
     private volatile static Map<String,User> userMap=new HashMap<>();
+    //大厅里的用户
     private volatile static Map<String,User> homeUserMap=new HashMap<>();
+
     private volatile static Map<String,Room> roomMap=new HashMap<>();
     private volatile static Map<String,String> userRoomMap=new HashMap<>();
 
@@ -29,7 +34,7 @@ public class RoomDispatch {
     private static final Object roommpLock=new Object();
     //private static final Object userroommpLock=new Object();
 
-    public static void enterHome(User user){
+    static void enterHome(User user){
         Logger.log(user.getID()+" enterHome "+"in RoomDispatch.enterHome");
         synchronized (usermpLock){
             if(!userMap.containsKey(user.getID())){
@@ -46,8 +51,9 @@ public class RoomDispatch {
                 new Thread(new HomeWorker(homeUserMap,roomMap)).start();
             }
         }
+        user.setStatus(User.UserStatus.home);
     }
-    public static void leaveHome(User user) throws NotInHomeException {
+    static void leaveHome(User user) throws NotInHomeException {
         Logger.log(user.getID()+" leaveHome "+"in RoomDispatch.leaveHome");
         synchronized (homeUsermpLock){
             if(!homeUserMap.containsKey(user.getID())){
@@ -58,7 +64,7 @@ public class RoomDispatch {
 
     }
 
-    public static void createRoom(User user,Room room) throws NotInHomeException {
+    static void createRoom(User user, Room room) throws NotInHomeException {
         Logger.log(user.getID()+" createRoom "+room.getID()+" in RoomDispatch.createRoom");
         synchronized (roommpLock){
             if(roomMap.containsKey(room.getID())){
@@ -83,7 +89,7 @@ public class RoomDispatch {
         }
     }
 
-    public static void enterRoom(User user,String roomID) throws NotInHomeException {
+    static void enterRoom(User user, String roomID) throws NotInHomeException {
         Logger.log(user.getID()+" enterRoom "+roomID+" in RoomDispatch.enterRoom");
         synchronized (roommpLock){
             if(!roomMap.containsKey(roomID)){
@@ -108,10 +114,11 @@ public class RoomDispatch {
                 user.setRoomID(room.getID());
                 room.addPlayer(user);
             }
+            user.setStatus(User.UserStatus.unready);
             roomResponse(user,"enterRoom","success","",roomID);
         }
     }
-    public static void leaveRoom(User user){
+    static void leaveRoom(User user){
         Logger.log(user.getID()+" leaveRoom  in RoomDispatch.leaveRoom");
         String roomID=userRoomMap.get(user.getID());
         synchronized (roommpLock) {
@@ -124,13 +131,14 @@ public class RoomDispatch {
             synchronized (room.userLock) {
                 room.removePlayer(user.getID());
                 userRoomMap.remove(user.getID());
-                user.setRoomID(null);
-                user.setGameChan(null);
             }
         }
+        user.setRoomID(null);
+        user.setGameChan(null);
         enterHome(user);
         roomResponse(user,"leaveRoom","success","",roomID);
     }
+
     private static void roomResponse(User user,String type,String status,String cause,String roomID){
 
         MessageSender.sendMsg(user.getWebSocketSession(),new RoomMessage(type,status,cause,roomID));
@@ -215,7 +223,7 @@ public class RoomDispatch {
                         return;
                     }
                     if(room.getPlayersNum()>3||room.getPlayersNum()<0){
-                        throw new RuntimeException("Invaild person number something must be wrong.");
+                        throw new RuntimeException("Invalid person number something must be wrong.");
                     }
                     while(!gameChan.isEmpty()){
                         try {
@@ -229,19 +237,38 @@ public class RoomDispatch {
             }
         }
 
-
+        private User getUser(String userID){
+            return room.getUser(userID);
+        }
         private void handleMessage(GameMessage gameMessage){
 
+            User user=getUser(gameMessage.getUserID());
+
             switch (gameMessage.getGameMessageType()){
+
                 case passLord:
                     case competeLord:
                         case doubleScore:
                             case getLord:
-                                case unready:
-                                    case timeout:
-                                        case ready:
-                                            case play:
-                                                MessageSender.sendMsgToRoom(room,gameMessage);break;
+                                case play:
+                                    MessageSender.sendMsgToRoom(room,gameMessage);break;
+
+                case unready:
+                     user.setStatus(User.UserStatus.unready);
+                     MessageSender.sendMsgToRoom(room,gameMessage);break;
+                case timeout:
+                      user.setStatus(User.UserStatus.trusteeship);
+                      MessageSender.sendMsgToRoom(room,gameMessage);break;
+                case ready:
+                     user.setStatus(User.UserStatus.ready);
+                     if(room.getReadyUserNum()==3){
+                         deal(room);
+                     }
+                     MessageSender.sendMsgToRoom(room,gameMessage);break;
+
+                case getBaseCards:
+                    dealBaseCards(room);
+
                 case getRoomInfo:
                     MessageSender.sendRoomDomain(room.getUser(gameMessage.getUserID()),room.generator());break;
                 case reconnection:
@@ -250,12 +277,30 @@ public class RoomDispatch {
                     roomSnapShootDomain.setGameSnapShootDomain(room.getCardAudit().generator(gameMessage.getUserID()));
                     MessageSender.sendRoomSnapShootDomain(room.getUser(gameMessage.getUserID()),roomSnapShootDomain);break;
             }
-
-
-
         }
     }
+    private static void dealBaseCards(Room room){
+        CardAudit cardAudit=room.getCardAudit();
+        Card[] baseCards=cardAudit.getBaseCard().toArray(Card[]::new);
+        GameMessage gameMessage=new GameMessage();
+        gameMessage.setGameMessageType(GameMessage.GameMessageType.getBaseCards);
+        gameMessage.setCards(baseCards);
+        MessageSender.sendMsgToRoom(room,gameMessage);
 
+    }
+    private static void deal(Room room){
+        CardAudit cardAudit=room.getCardAudit();
+        cardAudit.deal();
+        Map<String,List<Card>> userCards=cardAudit.getUserCards();
+        userCards.forEach((key,val)->{
+            User user=room.getUser(key);
+            user.setStatus(User.UserStatus.play);
+            GameMessage dealMessage=new GameMessage();
+            dealMessage.setGameMessageType(GameMessage.GameMessageType.dealCards);
+            dealMessage.setCards(val.toArray(Card[]::new));
+            MessageSender.sendMsg(user,dealMessage);
+        });
+    }
 
     static volatile AtomicInteger roomID=new AtomicInteger(0);
     public static int getRoomID(){
