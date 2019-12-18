@@ -119,6 +119,12 @@ public class User {
         if(status==UserStatus.home)homeService.leaveHome();
         status=UserStatus.logout;
     }
+    public void login(){
+        if(status!=UserStatus.play&&status!=UserStatus.trusteeship){
+            status=UserStatus.login;
+        }
+    }
+
     public UserDomain generator(){
         UserDomain userDomain=new UserDomain();
         userDomain.setSeat(getSeat());

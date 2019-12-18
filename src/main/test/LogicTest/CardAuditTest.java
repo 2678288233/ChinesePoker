@@ -62,4 +62,20 @@ public class CardAuditTest {
         }));
         return map;
     }
+
+class T1{
+        int a;
+    }
+    @Test
+    public void test(){
+        Map<String,T1> mp1=new HashMap<>();
+        Map<String,T1>mp2=new HashMap<>();
+        T1 t=new T1();
+        t.a=10;
+        mp1.put("12",t);
+        mp2.put("12",t);
+        t.a=20;
+        System.out.println(mp1.get("12").a);
+        System.out.println(mp2.get("12").a);
+    }
 }

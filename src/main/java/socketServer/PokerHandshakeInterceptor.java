@@ -45,6 +45,7 @@ public class PokerHandshakeInterceptor implements HandshakeInterceptor {
             return false;
         }
         User user=usersCache.get(userID);
+        user.login();
         map.put("user",user);
         Logger.log("  Handshake   "+user.getID());
         return true;
