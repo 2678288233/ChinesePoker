@@ -115,7 +115,9 @@ public class RoomDispatch {
                 room.addPlayer(user);
             }
             user.setStatus(User.UserStatus.unready);
-            roomResponse(user,"enterRoom","success","",roomID);
+
+            roomResponse(user,"enterRoom","success","",roomID,String.valueOf(user.getSeat()));
+            roomResponseToOther(room,user);
         }
     }
     static void leaveRoom(User user){
@@ -143,7 +145,22 @@ public class RoomDispatch {
 
         MessageSender.sendMsg(user.getWebSocketSession(),new RoomMessage(type,status,cause,roomID));
     }
+    private static void roomResponse(User user,String type,String status,String cause,String roomID,String seat){
 
+        MessageSender.sendMsg(user.getWebSocketSession(),new RoomMessage(type,status,cause,roomID,seat));
+    }
+
+    private static void roomResponseToOther(Room room,User user){
+        List<User> others=room.getOtherUsers(user.getID());
+        GameMessage message=new GameMessage();
+        message.setGameMessageType(GameMessage.GameMessageType.enterRoom);
+        message.setUserID(user.getID());
+        message.setSeat(user.getSeat());
+        others.forEach((other->{
+            MessageSender.sendMsg(other,message);
+
+        }));
+    }
     static class HomeWorker implements Runnable{
 
         Map<String,User> homeUserMap;
@@ -261,10 +278,11 @@ public class RoomDispatch {
                       MessageSender.sendMsgToRoom(room,gameMessage);break;
                 case ready:
                      user.setStatus(User.UserStatus.ready);
+                     MessageSender.sendMsgToRoom(room,gameMessage);
                      if(room.getReadyUserNum()==3){
                          deal(room);
-                     }
-                     MessageSender.sendMsgToRoom(room,gameMessage);break;
+                     }break;
+
 
                 case getBaseCards:
                     dealBaseCards(room);
@@ -292,10 +310,12 @@ public class RoomDispatch {
         CardAudit cardAudit=room.getCardAudit();
         cardAudit.deal();
         Map<String,List<Card>> userCards=cardAudit.getUserCards();
+        User lordStart=room.getRandomUser();
         userCards.forEach((key,val)->{
             User user=room.getUser(key);
             user.setStatus(User.UserStatus.play);
             GameMessage dealMessage=new GameMessage();
+            dealMessage.setUserID(lordStart.getID());
             dealMessage.setGameMessageType(GameMessage.GameMessageType.dealCards);
             dealMessage.setCards(val.toArray(Card[]::new));
             MessageSender.sendMsg(user,dealMessage);

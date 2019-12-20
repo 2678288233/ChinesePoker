@@ -33,6 +33,12 @@ public class GameMessage {
     @SerializedName("doubleRate")
     private Double doubleRate;
 
+    @SerializedName("isLord")
+    private Boolean isLord;
+
+    @SerializedName("seat")
+    private Integer seat;
+
     public GameMessage(){}
     public GameMessage(GameMessageType type){gameMessageType=type;}
 
@@ -115,5 +121,21 @@ public class GameMessage {
 
     public void setRoomDescription(String roomDescription) {
         this.roomDescription = roomDescription;
+    }
+
+    public Boolean getLord() {
+        return isLord;
+    }
+
+    public void setLord(Boolean lord) {
+        isLord = lord;
+    }
+
+    public Integer getSeat() {
+        return seat;
+    }
+
+    public void setSeat(Integer seat) {
+        this.seat = seat;
     }
 }

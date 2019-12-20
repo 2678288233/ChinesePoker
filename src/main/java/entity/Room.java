@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+
 public class Room {
 
 
@@ -29,8 +30,12 @@ public class Room {
     public int getPlayersNum(){
         return users.size();
     }
+    public User getRandomUser(){
+        return users.get((int)(Math.random()*10)%3);
+    }
     public void addPlayer(User user){
         users.add(user);
+        user.setSeat(users.size());
         cardAudit.addUser(user.getID());
     }
     public GameChan getGameChan() {
@@ -94,5 +99,14 @@ public class Room {
             roomDomain.getUsers().put(user.getID(),user.generator());
         }));
         return roomDomain;
+    }
+    public List<User>getOtherUsers(String userID){
+        List<User> others=new ArrayList<>();
+        users.forEach((user -> {
+            if (!user.getID().equals(userID)){
+                others.add(user);
+            }
+        }));
+        return others;
     }
 }

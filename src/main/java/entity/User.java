@@ -63,6 +63,7 @@ public class User {
     }
 
     public GameService getGameService() {
+
         return gameService;
     }
 
@@ -86,6 +87,14 @@ public class User {
         this.roomService = roomService;
     }
 
+    public boolean isLord() {
+        return isLord;
+    }
+
+    public void setLord(boolean lord) {
+        isLord = lord;
+    }
+
     private String ID;
     private WebSocketSession webSocketSession;
     private GameChan gameChan;
@@ -93,6 +102,7 @@ public class User {
     private String roomID;
     private int seat;
     private UserStatus status=UserStatus.unready;
+    private boolean isLord;
 
     private GameService gameService;
     private HomeService homeService;

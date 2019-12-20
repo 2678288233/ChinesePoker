@@ -5,6 +5,7 @@ import entity.Card;
 import entity.Room;
 import messages.GameMessage;
 import messages.RoomListMessage;
+import messages.RoomMessage;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -28,10 +29,33 @@ public class GameMessageTest {
     }
 
     @Test
+    public void RoomList(){
+        Gson gson=new Gson();
+
+//        GameMessage gameMessage=new GameMessage();
+        RoomMessage message=new RoomMessage("enterRoom","success","" ,"123","1");
+        System.out.println(gson.toJson(message));
+
+    }
+    @Test
     public void ConvertToGamessage(){
         Gson gson=new Gson();
-        GameMessage gameMessage=gson.fromJson("{\"type\":\"ready\",\"roomId\":\"asdfgdd\",\"newPwd\":\"1323546\",\"doubleRate\":1.021}",GameMessage.class);
-        System.out.println(gameMessage);
+        //GameMessage gameMessage=gson.fromJson("{\"type\":\"ready\",\"roomId\":\"asdfgdd\",\"newPwd\":\"1323546\",\"doubleRate\":1.021}",GameMessage.class);
+//        GameMessage message=new GameMessage();
+//        message.setGameMessageType(GameMessage.GameMessageType.ready);
+//        message.setUserID("123");
+        Card[] cards=new Card[3];
+        for (int i = 0; i <3 ; i++) {
+            cards[i]=new Card(i);
+        }
+        GameMessage dealMessage=new GameMessage();
+        //dealMessage.setGameMessageType(GameMessage.GameMessageType.dealCards);
+        //dealMessage.setCards(cards);
+        dealMessage.setGameMessageType(GameMessage.GameMessageType.play);
+        dealMessage.setCards(cards);
+        dealMessage.setUserID("123");
+//        dealMessage.setLord(false);
+        System.out.println(gson.toJson(dealMessage));
 
     }
     @Test

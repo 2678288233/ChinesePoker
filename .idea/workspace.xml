@@ -8,17 +8,40 @@
   <component name="ChangeListManager">
     <list default="true" id="2758511d-2dab-47fd-8d2d-367683bcf6a9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entity/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/Room.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/socketServer/PokerHandshakeInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/socketServer/PokerHandshakeInterceptor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/test/LogicTest/CardAuditTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/test/LogicTest/CardAuditTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/GameMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/GameMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/RoomMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/RoomMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/Imp/GameServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/Imp/GameServiceImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/Imp/RoomDispatch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/Imp/RoomDispatch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/socketServer/PokerWebSocketHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/socketServer/PokerWebSocketHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/test/entityTest/GameMessageTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/test/entityTest/GameMessageTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/ChinesePoker.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/entity/Room.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/entity/Room.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/entity/User$UserStatus.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/entity/User$UserStatus.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/entity/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/entity/User.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/messages/GameMessage$GameMessageType.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/messages/GameMessage$GameMessageType.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/socketServer/PokerWebSocketHandler$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/socketServer/PokerWebSocketHandler$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/messages/GameMessage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/messages/GameMessage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/messages/RoomMessage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/messages/RoomMessage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/services/Imp/GameServiceImp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/services/Imp/GameServiceImp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/services/Imp/RoomDispatch$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/services/Imp/RoomDispatch$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/services/Imp/RoomDispatch$HomeWorker.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/services/Imp/RoomDispatch$HomeWorker.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/services/Imp/RoomDispatch$RoomWorker.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/services/Imp/RoomDispatch$RoomWorker.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/services/Imp/RoomDispatch.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/services/Imp/RoomDispatch.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/socketServer/PokerWebSocketHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/socketServer/PokerWebSocketHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/entity/Room.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entity/Room.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/entity/User$UserStatus.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entity/User$UserStatus.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/entity/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entity/User.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/messages/GameMessage$GameMessageType.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/messages/GameMessage$GameMessageType.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/socketServer/PokerWebSocketHandler$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/socketServer/PokerWebSocketHandler$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/messages/GameMessage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/messages/GameMessage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/messages/RoomMessage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/messages/RoomMessage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/services/Imp/GameServiceImp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/Imp/GameServiceImp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/services/Imp/RoomDispatch$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/Imp/RoomDispatch$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/services/Imp/RoomDispatch$HomeWorker.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/Imp/RoomDispatch$HomeWorker.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/services/Imp/RoomDispatch$RoomWorker.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/Imp/RoomDispatch$RoomWorker.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/services/Imp/RoomDispatch.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/Imp/RoomDispatch.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/socketServer/PokerWebSocketHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/socketServer/PokerWebSocketHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/LogicTest/CardAuditTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/LogicTest/CardAuditTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/entityTest/GameMessageTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/entityTest/GameMessageTest.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -149,7 +172,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GameMessageTest.RoomMessageFromJson" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GameMessageTest.ConvertToGamessage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ChinesePoker" />
       <extension name="coverage">
         <pattern>
@@ -159,13 +182,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="entityTest" />
       <option name="MAIN_CLASS_NAME" value="entityTest.GameMessageTest" />
-      <option name="METHOD_NAME" value="RoomMessageFromJson" />
+      <option name="METHOD_NAME" value="ConvertToGamessage" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GameMessageTest.RoomMessageToJson" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GameMessageTest.RoomList" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ChinesePoker" />
       <extension name="coverage">
         <pattern>
@@ -175,7 +198,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="entityTest" />
       <option name="MAIN_CLASS_NAME" value="entityTest.GameMessageTest" />
-      <option name="METHOD_NAME" value="RoomMessageToJson" />
+      <option name="METHOD_NAME" value="RoomList" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -258,19 +281,19 @@
     </configuration>
     <list>
       <item itemvalue="JUnit.GameMessageTest" />
-      <item itemvalue="JUnit.GameMessageTest.RoomMessageToJson" />
-      <item itemvalue="JUnit.GameMessageTest.RoomMessageFromJson" />
       <item itemvalue="JUnit.CardAuditTest.TestPara" />
-      <item itemvalue="Tomcat Server.Tomcat9" />
       <item itemvalue="JUnit.CardAuditTest.test" />
+      <item itemvalue="JUnit.GameMessageTest.RoomList" />
+      <item itemvalue="JUnit.GameMessageTest.ConvertToGamessage" />
+      <item itemvalue="Tomcat Server.Tomcat9" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.GameMessageTest.ConvertToGamessage" />
+        <item itemvalue="JUnit.GameMessageTest.RoomList" />
         <item itemvalue="JUnit.CardAuditTest.test" />
         <item itemvalue="JUnit.CardAuditTest.TestPara" />
         <item itemvalue="JUnit.GameMessageTest" />
-        <item itemvalue="JUnit.GameMessageTest.RoomMessageToJson" />
-        <item itemvalue="JUnit.GameMessageTest.RoomMessageFromJson" />
       </list>
     </recent_temporary>
   </component>
@@ -321,7 +344,13 @@
       <workItem from="1576579448926" duration="7408000" />
       <workItem from="1576659249356" duration="4036000" />
       <workItem from="1576675113241" duration="275000" />
-      <workItem from="1576678467833" duration="2412000" />
+      <workItem from="1576678467833" duration="2658000" />
+      <workItem from="1576683160240" duration="63000" />
+      <workItem from="1576717849173" duration="320000" />
+      <workItem from="1576766808317" duration="538000" />
+      <workItem from="1576768559608" duration="3139000" />
+      <workItem from="1576809696273" duration="810000" />
+      <workItem from="1576843567267" duration="920000" />
     </task>
     <servers />
   </component>

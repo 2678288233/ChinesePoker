@@ -113,7 +113,9 @@ public class PokerWebSocketHandler implements WebSocketHandler {
             case competeLord:user.getGameService().competeLord();break;
             case doubleScore:user.getGameService().doubleScore();break;
             case passLord:user.getGameService().pass();break;
-            case getBaseCards:user.getGameService().getBaseCards();break;
+            case getBaseCards:
+                user.setLord(gameMessage.getLord());
+                user.getGameService().getBaseCards();break;
             case emptyResponse:break;
 
             case reconnection:user.getGameService().reconnection();break;
