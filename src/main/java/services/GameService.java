@@ -14,5 +14,7 @@ public interface GameService {
     void doubleScore();
     void pass();
     void reconnection();
-    void getBaseCards();
+    void getBaseCards(String lordId);
+    void noNatchLord();
+    void reDealCards();
 }

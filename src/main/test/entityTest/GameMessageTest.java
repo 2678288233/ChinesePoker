@@ -33,10 +33,15 @@ public class GameMessageTest {
         Gson gson=new Gson();
 
 //        GameMessage gameMessage=new GameMessage();
-        RoomMessage message=new RoomMessage("enterRoom","success","" ,"123","1");
+//        RoomMessage message=new RoomMessage("enterRoom","success","" ,"123","1");
+//        System.out.println(gson.toJson(message));
+        RoomListMessage message=new RoomListMessage();
+        message.setType(RoomListMessage.RoomMessageType.roomlist);
+        message.setList(new ArrayList<>());
         System.out.println(gson.toJson(message));
 
     }
+
     @Test
     public void ConvertToGamessage(){
         Gson gson=new Gson();

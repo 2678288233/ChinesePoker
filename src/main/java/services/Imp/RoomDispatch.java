@@ -15,7 +15,6 @@ import java.io.IOException;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-import java.util.stream.Collectors;
 
 public class RoomDispatch {
 
@@ -85,7 +84,7 @@ public class RoomDispatch {
                 thread.setName(room.getID());
                 thread.start();
             }
-            roomResponse(user,"createRoom","success","",room.getID());
+            roomResponse(user,"createRoom","success","",room.getID(),String.valueOf(user.getSeat()));
         }
     }
 
@@ -117,19 +116,20 @@ public class RoomDispatch {
             user.setStatus(User.UserStatus.unready);
 
             roomResponse(user,"enterRoom","success","",roomID,String.valueOf(user.getSeat()));
-            roomResponseToOther(room,user);
+            enterRoomResponseToOther(room,user);
         }
     }
     static void leaveRoom(User user){
         Logger.log(user.getID()+" leaveRoom  in RoomDispatch.leaveRoom");
         String roomID=userRoomMap.get(user.getID());
+        Room room;
         synchronized (roommpLock) {
             if (!roomMap.containsKey(roomID)) {
                 //throw new NonexistedRoomException("Nonexisted Room!");
                 roomResponse(user,"leaveRoom","error","NonExisted Room",roomID);
                 return;
             }
-            Room room = roomMap.get(roomID);
+            room= roomMap.get(roomID);
             synchronized (room.userLock) {
                 room.removePlayer(user.getID());
                 userRoomMap.remove(user.getID());
@@ -139,6 +139,7 @@ public class RoomDispatch {
         user.setGameChan(null);
         enterHome(user);
         roomResponse(user,"leaveRoom","success","",roomID);
+        leaveRoomResponseToOther(room,user);
     }
 
     private static void roomResponse(User user,String type,String status,String cause,String roomID){
@@ -150,10 +151,22 @@ public class RoomDispatch {
         MessageSender.sendMsg(user.getWebSocketSession(),new RoomMessage(type,status,cause,roomID,seat));
     }
 
-    private static void roomResponseToOther(Room room,User user){
+    private static void enterRoomResponseToOther(Room room, User user){
         List<User> others=room.getOtherUsers(user.getID());
         GameMessage message=new GameMessage();
         message.setGameMessageType(GameMessage.GameMessageType.enterRoom);
+        message.setUserID(user.getID());
+        message.setSeat(user.getSeat());
+        others.forEach((other->{
+            MessageSender.sendMsg(other,message);
+
+        }));
+    }
+
+    private static void leaveRoomResponseToOther(Room room, User user){
+        List<User> others=room.getOtherUsers(user.getID());
+        GameMessage message=new GameMessage();
+        message.setGameMessageType(GameMessage.GameMessageType.leaveRoom);
         message.setUserID(user.getID());
         message.setSeat(user.getSeat());
         others.forEach((other->{
@@ -191,7 +204,7 @@ public class RoomDispatch {
                         checkRoomMap();
                         List<Room> tem=new ArrayList<>(roomMap.values());
 
-                        if (!roomMap.isEmpty()) {
+                        //if (!roomMap.isEmpty()) {
                             homeUserMap.forEach((ID, user) -> {
                                 try {
                                     MessageSender.sendMsg(tem, user.getWebSocketSession());
@@ -199,7 +212,7 @@ public class RoomDispatch {
                                     e.printStackTrace();
                                 }
                             });
-                        }
+                       // }
                     }
                 }
 
@@ -263,12 +276,14 @@ public class RoomDispatch {
 
             switch (gameMessage.getGameMessageType()){
 
-                case passLord:
-                    case competeLord:
-                        case doubleScore:
-                            case getLord:
-                                case play:
-                                    MessageSender.sendMsgToRoom(room,gameMessage);break;
+                case noNatchLord:
+                    case passLord:
+                        case competeLord:
+                            case doubleScore:
+                                case getLord:
+                                    case play:
+                                        MessageSender.sendMsgToRoom(room,gameMessage);break;
+
 
                 case unready:
                      user.setStatus(User.UserStatus.unready);
@@ -276,16 +291,20 @@ public class RoomDispatch {
                 case timeout:
                       user.setStatus(User.UserStatus.trusteeship);
                       MessageSender.sendMsgToRoom(room,gameMessage);break;
+
+                case reDealCards:
+                    deal(room, GameMessage.GameMessageType.reDealCards);break;
+
                 case ready:
                      user.setStatus(User.UserStatus.ready);
                      MessageSender.sendMsgToRoom(room,gameMessage);
                      if(room.getReadyUserNum()==3){
-                         deal(room);
+                         deal(room, GameMessage.GameMessageType.dealCards);
                      }break;
 
 
                 case getBaseCards:
-                    dealBaseCards(room);
+                    dealBaseCards(room,gameMessage.getLordId());
 
                 case getRoomInfo:
                     MessageSender.sendRoomDomain(room.getUser(gameMessage.getUserID()),room.generator());break;
@@ -297,16 +316,19 @@ public class RoomDispatch {
             }
         }
     }
-    private static void dealBaseCards(Room room){
+    private static void dealBaseCards(Room room,String userID){
         CardAudit cardAudit=room.getCardAudit();
         Card[] baseCards=cardAudit.getBaseCard().toArray(Card[]::new);
         GameMessage gameMessage=new GameMessage();
         gameMessage.setGameMessageType(GameMessage.GameMessageType.getBaseCards);
+        gameMessage.setLordId(userID);
         gameMessage.setCards(baseCards);
         MessageSender.sendMsgToRoom(room,gameMessage);
 
     }
-    private static void deal(Room room){
+
+
+    private static void deal(Room room,GameMessage.GameMessageType type){
         CardAudit cardAudit=room.getCardAudit();
         cardAudit.deal();
         Map<String,List<Card>> userCards=cardAudit.getUserCards();
@@ -316,11 +338,13 @@ public class RoomDispatch {
             user.setStatus(User.UserStatus.play);
             GameMessage dealMessage=new GameMessage();
             dealMessage.setUserID(lordStart.getID());
-            dealMessage.setGameMessageType(GameMessage.GameMessageType.dealCards);
+            dealMessage.setGameMessageType(type);
             dealMessage.setCards(val.toArray(Card[]::new));
             MessageSender.sendMsg(user,dealMessage);
         });
     }
+
+
 
     static volatile AtomicInteger roomID=new AtomicInteger(0);
     public static int getRoomID(){

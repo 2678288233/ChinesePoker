@@ -19,6 +19,7 @@ public class Room {
     private CardAudit cardAudit;
     private String descript;
 
+
     public Room(){}
     public Room(String id){this.ID =id;}
     public String getID() {
@@ -74,6 +75,8 @@ public class Room {
     public void setDescript(String descript) {
         this.descript = descript;
     }
+
+
 
     public int getReadyUserNum(){
         int res=0;

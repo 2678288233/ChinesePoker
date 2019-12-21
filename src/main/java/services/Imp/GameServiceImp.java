@@ -105,10 +105,30 @@ public class GameServiceImp implements GameService {
     }
 
     @Override
-    public void getBaseCards() {
+    public void getBaseCards(String lordId) {
         try{
 
-            gameChan.send(user,new GameMessage(GameMessage.GameMessageType.getBaseCards));
+            GameMessage message=new GameMessage(GameMessage.GameMessageType.getBaseCards);
+            message.setLordId(lordId);
+            gameChan.send(user,message);
+        }catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void noNatchLord() {
+        try{
+            gameChan.send(user,new GameMessage(GameMessage.GameMessageType.noNatchLord));
+        }catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void reDealCards() {
+        try{
+            gameChan.send(user,new GameMessage(GameMessage.GameMessageType.reDealCards));
         }catch (InterruptedException e) {
             e.printStackTrace();
         }

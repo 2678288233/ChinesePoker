@@ -39,6 +39,9 @@ public class GameMessage {
     @SerializedName("seat")
     private Integer seat;
 
+    @SerializedName("LordId")
+    private String LordId;
+
     public GameMessage(){}
     public GameMessage(GameMessageType type){gameMessageType=type;}
 
@@ -52,7 +55,7 @@ public class GameMessage {
     public enum GameMessageType {
         ready, unready,timeout,play,
         enterRoom,createRoom,leaveRoom,
-        dealCards,getBaseCards,
+        reDealCards,dealCards,getBaseCards,
         getRoomInfo,emptyResponse,
         //dispatchCards,
         getLord,passLord,competeLord,
@@ -60,6 +63,7 @@ public class GameMessage {
         //gameover,
         doubleScore,
         reconnection,
+        noNatchLord,
     }
 
     @Override
@@ -137,5 +141,13 @@ public class GameMessage {
 
     public void setSeat(Integer seat) {
         this.seat = seat;
+    }
+
+    public String getLordId() {
+        return LordId;
+    }
+
+    public void setLordId(String lordId) {
+        LordId = lordId;
     }
 }
