@@ -146,7 +146,10 @@ public class RoomDispatch {
 
     static void getRoomInfo(User user,String roomID){
         Gson gson=new Gson();
-        Room room=roomMap.get(roomID);
+        Room room;
+        synchronized (roommpLock) {
+             room= roomMap.get(roomID);
+        }
         RoomInfo info=new RoomInfo();
         if (room==null){
             MessageSender.sendMsg(user,new TextMessage(gson.toJson(info)));

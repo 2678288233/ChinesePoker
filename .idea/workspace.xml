@@ -7,31 +7,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2758511d-2dab-47fd-8d2d-367683bcf6a9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/target/ChinesePoker.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/messages/GameMessage$GameMessageType.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/messages/GameMessage$GameMessageType.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/messages/GameMessage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/messages/GameMessage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/messages/MessageSender.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/messages/MessageSender.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/services/Imp/GameServiceImp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/services/Imp/GameServiceImp.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/services/Imp/RoomDispatch$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/services/Imp/RoomDispatch$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/services/Imp/RoomDispatch$HomeWorker.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/services/Imp/RoomDispatch$HomeWorker.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/services/Imp/RoomDispatch$RoomWorker.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/services/Imp/RoomDispatch$RoomWorker.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/services/Imp/RoomDispatch.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/services/Imp/RoomDispatch.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/services/Imp/RoomServiceImp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/services/Imp/RoomServiceImp.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/services/RoomService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/services/RoomService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/socketServer/PokerWebSocketHandler$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/socketServer/PokerWebSocketHandler$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/socketServer/PokerWebSocketHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ChinesePoker/WEB-INF/classes/socketServer/PokerWebSocketHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/messages/GameMessage$GameMessageType.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/messages/GameMessage$GameMessageType.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/messages/GameMessage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/messages/GameMessage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/messages/MessageSender.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/messages/MessageSender.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/services/Imp/GameServiceImp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/Imp/GameServiceImp.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/services/Imp/RoomDispatch$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/Imp/RoomDispatch$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/services/Imp/RoomDispatch$HomeWorker.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/Imp/RoomDispatch$HomeWorker.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/services/Imp/RoomDispatch$RoomWorker.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/Imp/RoomDispatch$RoomWorker.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/services/Imp/RoomDispatch.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/Imp/RoomDispatch.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/services/Imp/RoomServiceImp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/Imp/RoomServiceImp.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/services/RoomService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/RoomService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/socketServer/PokerWebSocketHandler$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/socketServer/PokerWebSocketHandler$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/socketServer/PokerWebSocketHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/socketServer/PokerWebSocketHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/RoomMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/RoomMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/Imp/RoomDispatch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/Imp/RoomDispatch.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -343,7 +321,7 @@
       <workItem from="1576843567267" duration="1206000" />
       <workItem from="1576851821494" duration="3059000" />
       <workItem from="1576906808087" duration="843000" />
-      <workItem from="1576914405662" duration="5238000" />
+      <workItem from="1576914405662" duration="7573000" />
     </task>
     <servers />
   </component>
