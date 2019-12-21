@@ -112,7 +112,7 @@ public class PokerWebSocketHandler implements WebSocketHandler {
             case doubleScore:user.getGameService().doubleScore();break;
             case passLord:user.getGameService().pass();break;
             case noSnatchLord:user.getGameService().noNatchLord();break;
-
+            case reDealCards:user.getGameService().reDealCards();break;
 
 
             case getBaseCards:
@@ -126,6 +126,7 @@ public class PokerWebSocketHandler implements WebSocketHandler {
             case reconnection:user.getGameService().reconnection();break;
             /* roomService*/
             case enterRoom:user.getRoomService().enterRoom(gameMessage.getRoomId());break;
+            case getRoomInfo:user.getRoomService().getRoomInfo(gameMessage.getRoomId());break;
             case createRoom:
                 Room room=new Room(String.valueOf(RoomDispatch.getRoomID()));
                 //room.setDescript(gameMessage.getRoomDescription());

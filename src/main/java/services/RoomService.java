@@ -8,4 +8,5 @@ public interface RoomService {
     void createRoom(Room room);
     void enterRoom(String roomID);
     void leaveRoom();
+    void getRoomInfo(String roomID);
 }

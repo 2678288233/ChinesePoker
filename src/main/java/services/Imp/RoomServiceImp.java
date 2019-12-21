@@ -42,5 +42,10 @@ public class RoomServiceImp implements RoomService {
         RoomDispatch.leaveRoom(user);
     }
 
+    @Override
+    public void getRoomInfo(String roomID) {
+        RoomDispatch.getRoomInfo(user,roomID);
+    }
+
 
 }

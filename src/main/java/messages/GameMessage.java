@@ -57,6 +57,7 @@ public class GameMessage {
         enterRoom,createRoom,leaveRoom,
         reDealCards,dealCards,getBaseCards,
         getRoomInfo,emptyResponse,
+
         //dispatchCards,
         getLord,passLord,competeLord,
         //bonusCards,

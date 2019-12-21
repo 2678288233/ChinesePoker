@@ -1,5 +1,6 @@
 package services.Imp;
 
+import com.google.gson.Gson;
 import domain.RoomSnapShootDomain;
 import entity.Card;
 import entity.Room;
@@ -10,6 +11,7 @@ import messages.GameChan;
 import messages.GameMessage;
 import messages.MessageSender;
 import messages.RoomMessage;
+import org.springframework.web.socket.TextMessage;
 
 import java.io.IOException;
 import java.util.*;
@@ -142,6 +144,31 @@ public class RoomDispatch {
         leaveRoomResponseToOther(room,user);
     }
 
+    static void getRoomInfo(User user,String roomID){
+        Gson gson=new Gson();
+        Room room=roomMap.get(roomID);
+        List<User>roomUsers=room.getUsers();
+        RoomInfo info=new RoomInfo();
+        roomUsers.forEach((u -> info.add(u.getID(),String.valueOf(u.getSeat()))));
+        MessageSender.sendMsg(user,new TextMessage(gson.toJson(info)));
+    }
+
+    static class RoomInfo{
+        String type="getRoomInfo";
+        List<RoomUserInfo> userInfos=new ArrayList<>();
+
+        void add(String userID,String seat){
+            userInfos.add(new RoomUserInfo(userID,seat));
+        }
+    }
+    static class RoomUserInfo{
+        String userID;
+        String seat;
+        RoomUserInfo(String userID,String seat){
+            this.userID=userID;
+            this.seat=seat;
+        }
+    }
     private static void roomResponse(User user,String type,String status,String cause,String roomID){
 
         MessageSender.sendMsg(user.getWebSocketSession(),new RoomMessage(type,status,cause,roomID));
