@@ -63,7 +63,7 @@ public class GameMessage {
         //gameover,
         doubleScore,
         reconnection,
-        noNatchLord,
+        noSnatchLord,
     }
 
     @Override

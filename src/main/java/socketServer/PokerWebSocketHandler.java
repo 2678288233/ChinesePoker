@@ -18,8 +18,6 @@ import services.CardAuditService;
 import services.Imp.RoomDispatch;
 
 import javax.annotation.Resource;
-import java.util.HashMap;
-import java.util.Map;
 
 
 /**
@@ -113,7 +111,7 @@ public class PokerWebSocketHandler implements WebSocketHandler {
             case competeLord:user.getGameService().competeLord();break;
             case doubleScore:user.getGameService().doubleScore();break;
             case passLord:user.getGameService().pass();break;
-            case noNatchLord:user.getGameService().noNatchLord();break;
+            case noSnatchLord:user.getGameService().noNatchLord();break;
 
 
 

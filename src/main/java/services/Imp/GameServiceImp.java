@@ -5,21 +5,25 @@ import entity.User;
 import messages.GameChan;
 import messages.GameMessage;
 
-import org.springframework.web.socket.TextMessage;
 import services.GameService;
 
 public class GameServiceImp implements GameService {
-    final static double DEFAULT_DOUBLE_SCORE=2.0;
+    private final static double DEFAULT_DOUBLE_SCORE=2.0;
 
-    GameChan gameChan;
-    User user;
+    private GameChan gameChan;
+    private User user;
+
     public GameServiceImp(User user){
         this.user=user;
         this.gameChan=user.getGameChan();
     }
+    private void flushGameChan(){
+        gameChan=user.getGameChan();
+    }
     @Override
     public void ready() {
         try {
+            flushGameChan();
             gameChan.send(user,new GameMessage(GameMessage.GameMessageType.ready));
         }catch (Exception e){
             e.printStackTrace();
@@ -30,6 +34,7 @@ public class GameServiceImp implements GameService {
     @Override
     public void unready() {
         try {
+            flushGameChan();
             gameChan.send(user,new GameMessage(GameMessage.GameMessageType.unready));
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -39,6 +44,7 @@ public class GameServiceImp implements GameService {
     @Override
     public void timeout() {
         try{
+            flushGameChan();
             gameChan.send(user,new GameMessage(GameMessage.GameMessageType.timeout));
         }catch (InterruptedException e) {
             e.printStackTrace();
@@ -49,6 +55,7 @@ public class GameServiceImp implements GameService {
     @Override
     public void play(Card[] cards) {
         try{
+
             GameMessage message=new GameMessage(GameMessage.GameMessageType.play);
             message.setCards(cards);
             gameChan.send(user,message);
@@ -119,7 +126,7 @@ public class GameServiceImp implements GameService {
     @Override
     public void noNatchLord() {
         try{
-            gameChan.send(user,new GameMessage(GameMessage.GameMessageType.noNatchLord));
+            gameChan.send(user,new GameMessage(GameMessage.GameMessageType.noSnatchLord));
         }catch (InterruptedException e) {
             e.printStackTrace();
         }

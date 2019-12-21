@@ -276,7 +276,7 @@ public class RoomDispatch {
 
             switch (gameMessage.getGameMessageType()){
 
-                case noNatchLord:
+                case noSnatchLord:
                     case passLord:
                         case competeLord:
                             case doubleScore:
