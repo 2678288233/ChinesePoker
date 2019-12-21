@@ -147,8 +147,14 @@ public class RoomDispatch {
     static void getRoomInfo(User user,String roomID){
         Gson gson=new Gson();
         Room room=roomMap.get(roomID);
-        List<User>roomUsers=room.getUsers();
         RoomInfo info=new RoomInfo();
+        if (room==null){
+            MessageSender.sendMsg(user,new TextMessage(gson.toJson(info)));
+            return;
+        }
+        List<User>roomUsers=room.getUsers();
+
+
         roomUsers.forEach((u -> info.add(u.getID(),String.valueOf(u.getSeat()))));
         MessageSender.sendMsg(user,new TextMessage(gson.toJson(info)));
     }
