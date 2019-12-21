@@ -48,7 +48,7 @@ public class LoginRestController {
             mp.put("status","success");
             mp.put("error","");
             mp.put("id",userInfo.getUSER_ID());
-            checkFirstLogin(userInfo.getUSER_ID());
+            checkFirstLogin(userInfo.getUSER_ID(),userInfo);
         }else{
             mp.put("status","fail");
             mp.put("error","wrong password");
@@ -74,6 +74,7 @@ public class LoginRestController {
         userInfo.setUSER_PWD(password);
         userInfoDao.insert(userInfo);
         usersInfoCache.put(username,userInfo);
+        checkFirstLogin(userInfo.getUSER_ID(),userInfo);
         mp.put("status","success");
         mp.put("error","");
         mp.put("id",userInfo.getUSER_ID());
@@ -111,7 +112,7 @@ public class LoginRestController {
         }
     }
 
-    private User checkFirstLogin(String userID){
+    private User checkFirstLogin(String userID,UserInfo userInfo){
 
         User user;
         if(usersCache.containsKey(userID)){
@@ -121,6 +122,7 @@ public class LoginRestController {
             }
         }else {
             user=userLogin(userID);
+            user.setUserInfo(userInfo);
             usersCache.put(userID,user);
             Logger.log("user "+userID+"  is registered");
             user.setStatus(User.UserStatus.login);

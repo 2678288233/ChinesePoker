@@ -42,6 +42,12 @@ public class GameMessage {
     @SerializedName("LordId")
     private String LordId;
 
+    @SerializedName("win")
+    private Boolean win;
+
+    @SerializedName("score")
+    private Integer score;
+
     public GameMessage(){}
     public GameMessage(GameMessageType type){gameMessageType=type;}
 
@@ -61,7 +67,7 @@ public class GameMessage {
         //dispatchCards,
         getLord,passLord,competeLord,
         //bonusCards,
-        //gameover,
+        gameOver,
         doubleScore,
         reconnection,
         noSnatchLord,
@@ -150,5 +156,21 @@ public class GameMessage {
 
     public void setLordId(String lordId) {
         LordId = lordId;
+    }
+
+    public Boolean getWin() {
+        return win;
+    }
+
+    public void setWin(Boolean win) {
+        this.win = win;
+    }
+
+    public Integer getScore() {
+        return score;
+    }
+
+    public void setScore(Integer score) {
+        this.score = score;
     }
 }

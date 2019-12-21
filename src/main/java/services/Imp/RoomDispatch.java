@@ -350,6 +350,7 @@ public class RoomDispatch {
                     roomSnapShootDomain.setRoomDomain(room.generator());
                     roomSnapShootDomain.setGameSnapShootDomain(room.getCardAudit().generator(gameMessage.getUserID()));
                     MessageSender.sendRoomSnapShootDomain(room.getUser(gameMessage.getUserID()),roomSnapShootDomain);break;
+                case gameOver:room.gameOver(user.getID(),gameMessage.getWin(),gameMessage.getScore());break;
             }
         }
     }

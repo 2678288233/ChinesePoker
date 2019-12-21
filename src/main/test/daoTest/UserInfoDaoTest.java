@@ -40,7 +40,7 @@ public class UserInfoDaoTest {
                 cardAudit.addUser("234",2)&&
                     cardAudit.addUser("1234"))
 
-            cardAudit.play("123","123",new Card[]{new Card(12),new Card(13)});
+            cardAudit.play("123",new Card[]{new Card(12),new Card(13)});
 
     }
 

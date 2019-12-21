@@ -17,4 +17,5 @@ public interface GameService {
     void getBaseCards(String lordId);
     void noNatchLord();
     void reDealCards();
+    void gameOver(Boolean win,Integer score);
 }

@@ -141,4 +141,16 @@ public class GameServiceImp implements GameService {
         }
     }
 
+    @Override
+    public void gameOver(Boolean win,Integer score) {
+        try{
+            GameMessage message=new GameMessage(GameMessage.GameMessageType.gameOver);
+            message.setScore(score);
+            message.setWin(win);
+            gameChan.send(user,message);
+        }catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

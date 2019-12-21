@@ -6,12 +6,14 @@ import dao.GameReplayRecordDao;
 import domain.GameSnapShootDomain;
 import entity.Card;
 import entity.CardPlayedLastTurn;
+import entity.CardReplayRecord;
 import entity.GameReplayRecord;
 import org.springframework.stereotype.Component;
 
 import java.sql.Time;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
 
@@ -21,13 +23,17 @@ public class CardAudit {
     private static final int USER_NUM=3;
     private final static Random random =new Random();
     private int currentUser=0;
-    final boolean[] audit=new boolean[TOTAL_CARDS_NUM];
-    final GameReplayRecordDao gameReplayRecordDao;
+    private final boolean[] audit=new boolean[TOTAL_CARDS_NUM];
+    private final GameReplayRecordDao gameReplayRecordDao;
     private final Map<String,List<Card>> userCards=new HashMap<>();
     private final List<Card> baseCard=new ArrayList<>();
     private final String[] users=new String[USER_NUM];
     private final CardPlayedLastTurn cardPlayedLastTurn=new CardPlayedLastTurn();
     private double scoreRate=1;
+
+    private String gameID;
+    private final List<GameReplayRecord> records=new ArrayList<>();
+//    private List<CardReplayRecord>records=new ArrayList<>();
 
     public CardAudit(GameReplayRecordDao gameReplayRecordDao) {
         this.gameReplayRecordDao=gameReplayRecordDao;
@@ -39,6 +45,7 @@ public class CardAudit {
         addUser(userID,pos);
         return true;
     }
+
 
     private int searchFirstPos(){
         for (int i = 0; i <USER_NUM ; i++) {
@@ -57,7 +64,7 @@ public class CardAudit {
         this.scoreRate*=rate;
     }
 
-    public void play(String gameID,String userID,Card[] cards){
+    public void play(String userID,Card[] cards){
         Arrays.stream(users).forEach(System.out::println);
         if(!userID.equals(users[currentUser]))
             throw new RuntimeException("Invalid Play Order! Something maybe wrong!");
@@ -69,7 +76,7 @@ public class CardAudit {
         currentUser=(++currentUser)%USER_NUM;
         cardPlayedLastTurn.addCard(userID,cards);
         changeCardStatus(cards);
-        doPlay(gameID,userID,cards);
+        doPlay(userID,cards);
         removeCards(userID,cards);
     }
 
@@ -92,19 +99,29 @@ public class CardAudit {
             audit[p.getInter()]=true;
         });
     }
-    private void doPlay(String gameID,String userID,Card[] cards){
+    private void doPlay(String userID,Card[] cards){
         GameReplayRecord gameReplayRecord=new GameReplayRecord();
         gameReplayRecord.setUSER_ID(userID);
         gameReplayRecord.setCARD_RECORD( Arrays.stream(cards).map(card -> String.valueOf(card.getInter())).collect(Collectors.joining(",")));
         gameReplayRecord.setGAME_ID(gameID);
         gameReplayRecord.setPLAY_TIME(String.valueOf(System.currentTimeMillis()));
-        gameReplayRecordDao.insert(gameReplayRecord);
+        records.add(gameReplayRecord);
+//        gameReplayRecordDao.insert(gameReplayRecord);
 
     }
     private boolean check(Card card){
         return audit[card.getInter()];
     }
 
+    public void gameOver(){
+        doGameOver();
+    }
+
+    private synchronized void doGameOver(){
+        if (records.isEmpty())return;
+        records.forEach(gameReplayRecordDao::insert);
+        records.clear();
+    }
 
 
     public GameSnapShootDomain generator(String userID){
@@ -118,6 +135,7 @@ public class CardAudit {
     }
     public void deal(){
 
+        gameID=String.valueOf(getGameID());
         userCards.forEach((key,val)->val.clear());
         baseCard.clear();
         int[] randNums=randGen(TOTAL_CARDS_NUM);
@@ -162,5 +180,11 @@ public class CardAudit {
 
     public List<Card> getBaseCard() {
         return baseCard;
+    }
+
+    private static final AtomicInteger gameIdGenerate=new AtomicInteger();
+    static int getGameID(){
+        return gameIdGenerate.getAndAdd(1);
+
     }
 }

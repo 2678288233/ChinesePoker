@@ -20,6 +20,7 @@ public class Room {
     private String descript;
 
 
+
     public Room(){}
     public Room(String id){this.ID =id;}
     public String getID() {
@@ -39,6 +40,15 @@ public class Room {
         user.setSeat(users.size());
         cardAudit.addUser(user.getID());
     }
+
+    public void gameOver(String userID,boolean win,int score){
+        User user=getUser(userID);
+        UserInfo userInfo=user.getUserInfo();
+        if (win) userInfo.setUSER_SCORE(userInfo.getUSER_SCORE()+score);
+        else userInfo.setUSER_SCORE(userInfo.getUSER_SCORE()-score);
+        cardAudit.gameOver();
+    }
+
     public GameChan getGameChan() {
         return gameChan;
     }
@@ -76,8 +86,6 @@ public class Room {
         this.descript = descript;
     }
 
-
-
     public int getReadyUserNum(){
         int res=0;
         for(User user:users) {
@@ -112,4 +120,6 @@ public class Room {
         }));
         return others;
     }
+
+
 }

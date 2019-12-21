@@ -95,6 +95,14 @@ public class User {
         isLord = lord;
     }
 
+    public UserInfo getUserInfo() {
+        return userInfo;
+    }
+
+    public void setUserInfo(UserInfo userInfo) {
+        this.userInfo = userInfo;
+    }
+
     private String ID;
     private WebSocketSession webSocketSession;
     private GameChan gameChan;
@@ -103,6 +111,8 @@ public class User {
     private int seat;
     private UserStatus status=UserStatus.unready;
     private boolean isLord;
+
+    private UserInfo userInfo;
 
     private GameService gameService;
     private HomeService homeService;
