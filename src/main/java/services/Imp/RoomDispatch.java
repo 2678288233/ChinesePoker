@@ -171,10 +171,10 @@ public class RoomDispatch {
         }
     }
     static class RoomUserInfo{
-        String userID;
+        String userId;
         String seat;
         RoomUserInfo(String userID,String seat){
-            this.userID=userID;
+            this.userId =userID;
             this.seat=seat;
         }
     }

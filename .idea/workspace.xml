@@ -7,8 +7,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2758511d-2dab-47fd-8d2d-367683bcf6a9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/messages/RoomMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/RoomMessage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/services/Imp/RoomDispatch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/Imp/RoomDispatch.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -321,7 +319,7 @@
       <workItem from="1576843567267" duration="1206000" />
       <workItem from="1576851821494" duration="3059000" />
       <workItem from="1576906808087" duration="843000" />
-      <workItem from="1576914405662" duration="7573000" />
+      <workItem from="1576914405662" duration="7986000" />
     </task>
     <servers />
   </component>
