@@ -324,6 +324,7 @@ public class RoomDispatch {
                 case unready:
                      user.setStatus(User.UserStatus.unready);
                      MessageSender.sendMsgToRoom(room,gameMessage);break;
+
                 case timeout:
                       user.setStatus(User.UserStatus.trusteeship);
                       MessageSender.sendMsgToRoom(room,gameMessage);break;
