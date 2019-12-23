@@ -1,6 +1,7 @@
 package entityTest;
 
 import com.google.gson.Gson;
+import controller.GameInfoController;
 import entity.Card;
 import entity.Room;
 import messages.GameMessage;
@@ -9,7 +10,9 @@ import messages.RoomMessage;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static org.junit.Assert.*;
 
@@ -35,11 +38,12 @@ public class GameMessageTest {
 //        GameMessage gameMessage=new GameMessage();
 //        RoomMessage message=new RoomMessage("enterRoom","success","" ,"123","1");
 //        System.out.println(gson.toJson(message));
-        RoomListMessage message=new RoomListMessage();
-        message.setType(RoomListMessage.RoomMessageType.roomlist);
-        message.setList(new ArrayList<>());
-        System.out.println(gson.toJson(message));
+//        RoomListMessage message=new RoomListMessage();
+//        message.setType(RoomListMessage.RoomMessageType.roomlist);
+//        message.setList(new ArrayList<>());
+//        System.out.println(gson.toJson(message));
 
+        System.out.println(gson.fromJson("{\"type\":\"gameOver\",\"win\":true,\"score\":960}",GameMessage.class).getWin());
     }
 
     @Test
@@ -159,5 +163,15 @@ public class GameMessageTest {
         System.out.println(gson.toJson(message));
         System.out.println(gson.toJson(douScoreMessage));
 
+    }
+    @Test
+    public void test(){
+        Gson gson=new Gson();
+        GameInfoController.GameRecords gameRecords=new GameInfoController.GameRecords();
+        gameRecords.add("23","123","24","234","234",123);
+        gameRecords.add("23","123","24","234","234",123);
+        Map<String,String> mp=new HashMap<>();
+        mp.put("gameRecord",gson.toJson(gameRecords));
+        System.out.println(gson.toJson(mp));
     }
 }

@@ -1,7 +1,9 @@
 package controller;
 
+import dao.UserBonusDao;
 import dao.UserInfoDao;
 import entity.User;
+import entity.UserBonus;
 import entity.UserInfo;
 import log.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +11,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -26,8 +29,16 @@ public class LoginRestController {
     }
 
 
-    private UserInfoDao userInfoDao;
+    public UserBonusDao getUserBonusDao() {
+        return userBonusDao;
+    }
+    @Autowired
+    public void setUserBonusDao(UserBonusDao userBonusDao) {
+        this.userBonusDao = userBonusDao;
+    }
 
+    private UserInfoDao userInfoDao;
+    private UserBonusDao userBonusDao;
     //userID->user
     @Resource(name = "usersCache")
     HashMap<String,User> usersCache;
@@ -75,6 +86,11 @@ public class LoginRestController {
         userInfoDao.insert(userInfo);
         usersInfoCache.put(username,userInfo);
         checkFirstLogin(userInfo.getUSER_ID(),userInfo);
+
+        UserBonus userBonus=new UserBonus();
+        userBonus.setUSER_LAST_GAME_TIME(new Date().toString());
+        userBonus.setUSER_ID(userInfo.getUSER_ID());
+        userBonusDao.insert(userBonus);
         mp.put("status","success");
         mp.put("error","");
         mp.put("id",userInfo.getUSER_ID());

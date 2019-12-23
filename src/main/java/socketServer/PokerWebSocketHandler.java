@@ -3,8 +3,14 @@ package socketServer;
 
 
 import com.google.gson.Gson;
+import dao.GameInfoDao;
+import dao.UserBonusDao;
+import dao.UserInfoDao;
+import dao.UserRelatedGameDao;
 import entity.Room;
 import entity.User;
+import entity.UserBonus;
+import entity.UserInfo;
 import log.Logger;
 import messages.GameChan;
 import messages.GameMessage;
@@ -18,6 +24,8 @@ import services.CardAuditService;
 import services.Imp.RoomDispatch;
 
 import javax.annotation.Resource;
+import java.util.Date;
+import java.util.HashMap;
 
 
 /**
@@ -34,6 +42,43 @@ public class PokerWebSocketHandler implements WebSocketHandler {
         this.gson = gson;
     }
 
+    private UserInfoDao userInfoDao;
+    private UserBonusDao userBonusDao;
+
+    public UserInfoDao getUserInfoDao() {
+        return userInfoDao;
+    }
+    @Autowired
+    public void setUserInfoDao(UserInfoDao userInfoDao) {
+        this.userInfoDao = userInfoDao;
+    }
+
+    public UserBonusDao getUserBonusDao() {
+        return userBonusDao;
+    }
+    @Autowired
+    public void setUserBonusDao(UserBonusDao userBonusDao) {
+        this.userBonusDao = userBonusDao;
+    }
+
+    private GameInfoDao gameInfoDao;
+    private UserRelatedGameDao userRelatedGameDao;
+    @Autowired
+    public void setGameInfoDao(GameInfoDao gameInfoDao) {
+        this.gameInfoDao = gameInfoDao;
+    }
+
+    @Autowired
+    public void setUserRelatedGameDao(UserRelatedGameDao userRelatedGameDao) {
+        this.userRelatedGameDao = userRelatedGameDao;
+    }
+    //userID->user
+    @Resource(name = "usersCache")
+    HashMap<String,User> usersCache;
+
+    //userName->userInfo
+    @Resource(name = "usersInfoCache")
+    HashMap<String, UserInfo> usersInfoCache;
 
 
     @Resource(name = "gson")
@@ -56,6 +101,9 @@ public class PokerWebSocketHandler implements WebSocketHandler {
 
 
         User user=(User)webSocketSession.getAttributes().get("user");
+
+        user.setUserRelatedGameDao(userRelatedGameDao);
+
         user.setWebSocketSession(webSocketSession);
         if (user.getStatus()== User.UserStatus.login){
             user.getHomeService().enterHome();
@@ -113,7 +161,9 @@ public class PokerWebSocketHandler implements WebSocketHandler {
             case passLord:user.getGameService().pass();break;
             case noSnatchLord:user.getGameService().noNatchLord();break;
             case reDealCards:user.getGameService().reDealCards();break;
-            case gameOver:user.getGameService().gameOver(gameMessage.getWin(),gameMessage.getScore());break;
+            case gameOver:user.getGameService().gameOver(gameMessage.getWin(),gameMessage.getScore());
+                    handleGameOver(user,gameMessage.getWin(),gameMessage.getScore());
+                    break;
 
             case getBaseCards:
                 //user.setLord(gameMessage.getLord());
@@ -129,6 +179,7 @@ public class PokerWebSocketHandler implements WebSocketHandler {
             case getRoomInfo:user.getRoomService().getRoomInfo(gameMessage.getRoomId());break;
             case createRoom:
                 Room room=new Room(String.valueOf(RoomDispatch.getRoomID()));
+                room.setGameInfoDao(gameInfoDao);
                 //room.setDescript(gameMessage.getRoomDescription());
                 room.setGameChan(new GameChan());
                 room.setCardAudit(cardAuditService.getCardAudit());
@@ -139,6 +190,33 @@ public class PokerWebSocketHandler implements WebSocketHandler {
 
             default:throw new RuntimeException("UnKnown type");
         }
+    }
+
+    private void handleGameOver(User user,boolean win,int score){
+        Logger.log(user.getUserInfo().getUSER_NAME()+" "+win+" "+score);
+        if (win) {
+            userInfoDao.update(user.getID(),true,score);
+            user.getUserInfo().setUSER_SCORE(user.getUserInfo().getUSER_SCORE()+score);
+            user.getUserInfo().setUSER_WINNUM(user.getUserInfo().getUSER_WINNUM()+1);
+        }
+        else {
+            userInfoDao.update(user.getID(),false,-score);
+            user.getUserInfo().setUSER_SCORE(user.getUserInfo().getUSER_SCORE()-score);
+            user.getUserInfo().setUSER_LOSENUM(user.getUserInfo().getUSER_LOSENUM()+1);
+        }
+
+        UserBonus userBonus=new UserBonus();
+        userBonus.setUSER_ID(user.getID());
+        userBonus.setUSER_LAST_GAME_TIME(new Date().toString());
+        if (user.isLord()){
+            if (win) userBonus.setUSER_LORD_WINNUM(1);
+            else userBonus.setUSER_LORD_LOSENUM(1);
+        }else {
+            if (win) userBonus.setUSER_PEASANT_WINNUM(1);
+            else userBonus.setUSER_PEASANT_LOSENUM(1);
+        }
+        userBonusDao.updateDelta(userBonus);
+
     }
 
 

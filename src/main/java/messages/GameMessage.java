@@ -48,6 +48,10 @@ public class GameMessage {
     @SerializedName("score")
     private Integer score;
 
+    @SerializedName("name")
+    private String name;
+
+
     public GameMessage(){}
     public GameMessage(GameMessageType type){gameMessageType=type;}
 
@@ -172,5 +176,13 @@ public class GameMessage {
 
     public void setScore(Integer score) {
         this.score = score;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

@@ -10,6 +10,11 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
 
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.TimeZone;
+
 
 @Repository
 public class UserInfoDaoImpl extends SqlSessionDaoSupport implements UserInfoDao {
@@ -40,6 +45,18 @@ public class UserInfoDaoImpl extends SqlSessionDaoSupport implements UserInfoDao
     @Override
     public UserInfo selectByName(String username) {
         return this.getSqlSession().selectOne("dao.UserInfoDao.selectByName",username);
+    }
+
+    @Override
+    public void update(String userID,  boolean win,int score) {
+
+        Map<String,String> para=new HashMap<>(3);
+
+        para.put("userID",userID);
+        para.put("score",String.valueOf(score));
+        if (win) para.put("win","");
+        else para.put("lose","");
+        this.getSqlSession().update("dao.UserInfoDao.updateAfterGameOver",para);
     }
 
 

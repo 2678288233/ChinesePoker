@@ -22,4 +22,5 @@ public interface UserInfoDao {
     UserInfo select(String id);
     UserInfo selectByName(String username);
 
+    void update(String userID,  boolean win,int score);
 }

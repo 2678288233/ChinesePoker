@@ -1,10 +1,12 @@
 package entity;
 
+import dao.GameInfoDao;
 import domain.RoomDomain;
 import messages.GameChan;
 import services.Imp.CardAudit;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -19,7 +21,9 @@ public class Room {
     private CardAudit cardAudit;
     private String descript;
 
-
+    private String startTime;
+    private String curGameId;
+    private GameInfoDao gameInfoDao;
 
     public Room(){}
     public Room(String id){this.ID =id;}
@@ -42,11 +46,36 @@ public class Room {
     }
 
     public void gameOver(String userID,boolean win,int score){
-        User user=getUser(userID);
-        UserInfo userInfo=user.getUserInfo();
-        if (win) userInfo.setUSER_SCORE(userInfo.getUSER_SCORE()+score);
-        else userInfo.setUSER_SCORE(userInfo.getUSER_SCORE()-score);
+//        User user=getUser(userID);
+//        UserInfo userInfo=user.getUserInfo();
+//        if (win) userInfo.setUSER_SCORE(userInfo.getUSER_SCORE()+score);
+//        else userInfo.setUSER_SCORE(userInfo.getUSER_SCORE()-score);
         cardAudit.gameOver();
+        doRecordGameInfo();
+        doUserRelatedGame(userID,win,score);
+
+    }
+    private void doUserRelatedGame(String userID,boolean win,int score){
+        User user=getUser(userID);
+        UserRelatedGame userRelatedGame=new UserRelatedGame();
+        userRelatedGame.setGAME_ID(getCurGameId());
+        userRelatedGame.setUSER_ID(userID);
+        userRelatedGame.setUSER_SCORE(win?score:-score);
+        userRelatedGame.setUSER_SIGN(user.isLord()?0:1);
+        user.getUserRelatedGameDao().insert(userRelatedGame);
+    }
+
+    private synchronized void doRecordGameInfo(){
+        if(startTime==null) return;
+        GameInfo gameInfo=new GameInfo();
+        gameInfo.setGAME_ID(getCurGameId());
+        gameInfo.setGAME_START_TIME(getStartTime());
+        gameInfo.setGAME_LAST_TIME(new Date().toString());
+        gameInfo.setFIRST_USER_ID(users.get(0).getUserInfo().getUSER_NAME());
+        gameInfo.setSECOND_USER_ID(users.get(1).getUserInfo().getUSER_NAME());
+        gameInfo.setTHIRD_USER_ID(users.get(2).getUserInfo().getUSER_NAME());
+        gameInfoDao.insert(gameInfo);
+        startTime=null;
     }
 
     public GameChan getGameChan() {
@@ -69,6 +98,13 @@ public class Room {
         return users;
     }
 
+    public GameInfoDao getGameInfoDao() {
+        return gameInfoDao;
+    }
+
+    public void setGameInfoDao(GameInfoDao gameInfoDao) {
+        this.gameInfoDao = gameInfoDao;
+    }
 
     public Object getUserLock() {
         return userLock;
@@ -106,6 +142,7 @@ public class Room {
         RoomDomain roomDomain=new RoomDomain();
 
         roomDomain.setRoomId(getID());
+
         users.forEach((user -> {
             roomDomain.getUsers().put(user.getID(),user.generator());
         }));
@@ -121,5 +158,19 @@ public class Room {
         return others;
     }
 
+    public String getStartTime() {
+        return startTime;
+    }
 
+    public void setStartTime(String startTime) {
+        this.startTime = startTime;
+    }
+
+    public String getCurGameId() {
+        return curGameId;
+    }
+
+    public void setCurGameId(String curGameId) {
+        this.curGameId = curGameId;
+    }
 }

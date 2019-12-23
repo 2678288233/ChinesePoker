@@ -158,7 +158,7 @@ public class RoomDispatch {
         List<User>roomUsers=room.getUsers();
 
 
-        roomUsers.forEach((u -> info.add(u.getID(),String.valueOf(u.getSeat()))));
+        roomUsers.forEach((u -> info.add(u.getID(),String.valueOf(u.getSeat()),u.getUserInfo().getUSER_NAME(),u.getStatus().toString(),u.getUserInfo().getUSER_SCORE())));
         MessageSender.sendMsg(user,new TextMessage(gson.toJson(info)));
     }
 
@@ -166,16 +166,22 @@ public class RoomDispatch {
         String type="getRoomInfo";
         List<RoomUserInfo> userInfos=new ArrayList<>();
 
-        void add(String userID,String seat){
-            userInfos.add(new RoomUserInfo(userID,seat));
+        void add(String userID,String seat,String name,String status,int score){
+            userInfos.add(new RoomUserInfo(userID,seat,name,status,score));
         }
     }
     static class RoomUserInfo{
         String userId;
         String seat;
-        RoomUserInfo(String userID,String seat){
+        String name;
+        String status;
+        int score;
+        RoomUserInfo(String userID,String seat,String name,String status,int score){
             this.userId =userID;
             this.seat=seat;
+            this.name=name;
+            this.status=status;
+            this.score=score;
         }
     }
     private static void roomResponse(User user,String type,String status,String cause,String roomID){
@@ -191,6 +197,8 @@ public class RoomDispatch {
         List<User> others=room.getOtherUsers(user.getID());
         GameMessage message=new GameMessage();
         message.setGameMessageType(GameMessage.GameMessageType.enterRoom);
+        message.setScore(user.getUserInfo().getUSER_SCORE());
+        message.setName(user.getUserInfo().getUSER_NAME());
         message.setUserID(user.getID());
         message.setSeat(user.getSeat());
         others.forEach((other->{
@@ -337,6 +345,7 @@ public class RoomDispatch {
                      MessageSender.sendMsgToRoom(room,gameMessage);
                      if(room.getReadyUserNum()==3){
                          deal(room, GameMessage.GameMessageType.dealCards);
+                         room.setStartTime(new Date().toString());
                      }break;
 
 
@@ -357,6 +366,8 @@ public class RoomDispatch {
     private static void dealBaseCards(Room room,String userID){
         CardAudit cardAudit=room.getCardAudit();
         Card[] baseCards=cardAudit.getBaseCard().toArray(Card[]::new);
+        room.getUser(userID).setLord(true);
+        room.setCurGameId(String.valueOf(cardAudit.getGameID()));
         GameMessage gameMessage=new GameMessage();
         gameMessage.setGameMessageType(GameMessage.GameMessageType.getBaseCards);
         gameMessage.setLordId(userID);

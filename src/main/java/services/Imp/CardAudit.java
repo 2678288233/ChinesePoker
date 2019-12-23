@@ -151,6 +151,10 @@ public class CardAudit {
         }
     }
 
+    public void setGameID(String gameID) {
+        this.gameID = gameID;
+    }
+
     private int[] randGen(int num){
         int[] res=new int[num];
         List<Integer> list=new LinkedList<>();

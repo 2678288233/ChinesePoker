@@ -1,5 +1,6 @@
 package entity;
 
+import dao.UserRelatedGameDao;
 import domain.UserDomain;
 import messages.GameChan;
 import org.springframework.web.socket.TextMessage;
@@ -103,6 +104,14 @@ public class User {
         this.userInfo = userInfo;
     }
 
+    public UserRelatedGameDao getUserRelatedGameDao() {
+        return userRelatedGameDao;
+    }
+
+    public void setUserRelatedGameDao(UserRelatedGameDao userRelatedGameDao) {
+        this.userRelatedGameDao = userRelatedGameDao;
+    }
+
     private String ID;
     private WebSocketSession webSocketSession;
     private GameChan gameChan;
@@ -113,6 +122,7 @@ public class User {
     private boolean isLord;
 
     private UserInfo userInfo;
+    private UserRelatedGameDao userRelatedGameDao;
 
     private GameService gameService;
     private HomeService homeService;
@@ -150,6 +160,9 @@ public class User {
         userDomain.setSeat(getSeat());
         userDomain.setStatus(getStatus());
         userDomain.setUserID(getID());
+        userDomain.setName(getUserInfo().getUSER_NAME());
+        userDomain.setScore(getUserInfo().getUSER_SCORE());
+        userDomain.setStatus(getStatus());
         return userDomain;
     }
 

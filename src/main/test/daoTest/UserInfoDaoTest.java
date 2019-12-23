@@ -34,6 +34,19 @@ public class UserInfoDaoTest {
     CardAuditService cardAuditService;
 
     @Test
+    public void testGameOver(){
+        userInfoDao.update("10",true,11);
+        userInfoDao.update("10",true,1111);
+        userInfoDao.update("10",false,-11);
+        userInfoDao.update("10",false,-1111);
+        UserBonus userBonus=new UserBonus();
+        userBonus.setUSER_ID("10");
+        userBonus.setUSER_LORD_LOSENUM(1);
+        userBonus.setUSER_LAST_GAME_TIME(new Date().toString());
+        userBonusDao.updateDelta(userBonus);
+    }
+
+    @Test
     public void testReplayRecordService(){
         CardAudit cardAudit=cardAuditService.getCardAudit();
         if(cardAudit.addUser("123",0)&&

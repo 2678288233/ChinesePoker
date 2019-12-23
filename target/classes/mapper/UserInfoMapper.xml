@@ -30,4 +30,12 @@
         where USER_NAME=#{username}
     </select>
 
+    <update id="updateAfterGameOver" >
+        update USER_INFO set
+        <if test="win!=null"> USER_WINNUM=USER_WINNUM+1,</if>
+        <if test="lose!=null"> USER_LOSENUM=USER_LOSENUM+1,</if>
+
+        USER_SCORE=USER_SCORE+(#{score})
+        where USER_ID=#{userID}
+    </update>
 </mapper>
